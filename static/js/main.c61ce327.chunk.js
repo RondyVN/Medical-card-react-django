@@ -1,0 +1,2 @@
+(this["webpackJsonppatients-app-ui"]=this["webpackJsonppatients-app-ui"]||[]).push([[0],{9:function(e,t,n){"use strict";n.r(t);n(1);var s=n(3),c=n.n(s),i=n(0);var p=function(){return Object(i.jsx)("div",{className:"App",children:Object(i.jsx)("div",{children:Object(i.jsx)("h1",{children:"Huy"})})})};c.a.render(Object(i.jsx)(p,{}),document.getElementById("root"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.c61ce327.chunk.js.map

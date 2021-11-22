@@ -2,7 +2,13 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import PatientSerializer, CommentsSerializer
 
+from django.shortcuts import render
+
 from .models import Patients, Comments
+
+
+def index(request):
+    return render(request, 'index.html')
 
 
 @api_view(['GET'])
@@ -19,7 +25,6 @@ def api_overview(request):
         'Comment Detail': '/comments-detail/<str:pk_patient>/',
         'Comment Create': '/comment-create/',
         'Comment delete': '/comment-delete/<str:pk_comment>/',
-
     }
     return Response(api_urls)
 
