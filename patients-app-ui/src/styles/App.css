@@ -39,7 +39,7 @@ body {
     background-color: white;
 }
 
-.right-pane {
+.right-panel {
     padding: 20px;
     width: 100%;
     max-height: 95vh;
@@ -52,7 +52,19 @@ body {
     margin-top: 10px;
     border-radius: 25px;
     padding: 5px 20px 5px 20px;
-    border: 1px solid teal;
+    border: 1px solid white;
+    background-color: #f2f7ec;
+    cursor: pointer;
+}
+
+.patient:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.patient {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
 }
 
 .first-last-name {

@@ -3,7 +3,7 @@ import PatientItem from "./PatientItem";
 import MyButton from "./UI/button/MyButton";
 import Input from "./UI/myinput/Input";
 
-const PatientList = ({patients}) => {
+const PatientList = ({setId, patients}) => {
     if (!patients.length) {
         return (
             <div>
@@ -17,7 +17,7 @@ const PatientList = ({patients}) => {
     return (
         <div>
             {patients.map(e =>
-                <PatientItem key={e.id} patients={e}/>
+                <PatientItem setId={setId} key={e.id} patients={e}/>
             )}
         </div>
     );
