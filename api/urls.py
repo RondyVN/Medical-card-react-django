@@ -6,6 +6,7 @@ urlpatterns = [
     # View patients
     path('', views.api_overview, name="api-overview"),
     path('patient-list/', views.patient_list, name="patient-list"),
+    path('patient-first/', views.patient_first, name="patient-first"),
     path('patient-detail/<str:pk>/', views.patient_detail, name="patient-detail"),
 
     # Patient create

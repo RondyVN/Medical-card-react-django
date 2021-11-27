@@ -1,7 +1,6 @@
 import React from 'react';
 import PatientItem from "./PatientItem";
-import MyButton from "./UI/button/MyButton";
-import Input from "./UI/myinput/Input";
+
 
 const PatientList = ({setId, patients}) => {
     if (!patients.length) {

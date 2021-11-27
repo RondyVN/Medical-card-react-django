@@ -13,6 +13,7 @@
     background: white;
     border-radius: 16px;
     min-width: 250px;
+    max-width: 600px;
 }
 
 .myModal.active {

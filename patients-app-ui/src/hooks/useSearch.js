@@ -4,7 +4,7 @@ export const usePosts = (patients, query) => {
     const sortedPosts = patients
 
     const sortedAndSearchedPost = useMemo(() => {
-        return sortedPosts.filter(post => post.first_name.toLowerCase().includes(query.toLowerCase()) || post.last_name.toLowerCase().includes(query.toLowerCase()))
+        return sortedPosts.filter(post => post.first_name.toLowerCase().includes(query.toLowerCase().trim()) || post.last_name.toLowerCase().includes(query.toLowerCase().trim()))
     }, [query, sortedPosts])
 
     return sortedAndSearchedPost

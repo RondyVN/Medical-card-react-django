@@ -1,12 +1,13 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import PatientSerializer, CommentsSerializer
-
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 
 from .models import Patients, Comments
 
 
+@csrf_exempt
 def index(request):
     return render(request, 'index.html')
 
@@ -17,6 +18,7 @@ def api_overview(request):
         'Patient INFO': '',
         'List': '/patient-list/',
         'Detail View': '/patient-detail/<str:pk>/',
+        'Get first patient': '/patient-first/',
         'Create': '/patient-create/',
         'Update': '/patient-update/<str:pk>/',
         'Delete': '/patient-delete/<str:pk>/',
@@ -32,8 +34,15 @@ def api_overview(request):
 # Patients
 @api_view(['GET'])
 def patient_list(request):
-    patients = Patients.objects.all()
+    patients = Patients.objects.all().order_by('-id')
     serializer = PatientSerializer(patients, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def patient_first(request):
+    patients = Patients.objects.all().order_by('-id').first()
+    serializer = PatientSerializer(patients, many=False)
     return Response(serializer.data)
 
 
@@ -80,7 +89,7 @@ def comment_list(request):
 
 @api_view(['GET'])
 def comment_detail(request, pk_patient):
-    comment = Comments.objects.all().filter(comment_id=pk_patient)
+    comment = Comments.objects.all().filter(comment_id=pk_patient).order_by('-id')
     serializer = CommentsSerializer(comment, many=True)
     return Response(serializer.data)
 

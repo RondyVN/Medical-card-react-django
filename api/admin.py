@@ -8,8 +8,8 @@ class PatientsAdmin(admin.ModelAdmin):
 
 
 class CommentsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'comment_id', 'username', 'comment')
-    list_display_links = ('comment_id', 'username', 'comment')
+    list_display = ('id', 'comment_id', 'comment', 'date_create')
+    list_display_links = ('comment_id', 'comment')
 
 
 admin.site.register(Patients, PatientsAdmin)

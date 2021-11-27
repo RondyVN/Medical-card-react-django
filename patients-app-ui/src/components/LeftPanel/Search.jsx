@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from "./UI/myinput/Input";
+import Input from "../UI/myinput/Input";
 
 const Search = ({filter, setFilter}) => {
     return (
