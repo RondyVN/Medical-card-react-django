@@ -1,10 +1,10 @@
 import React, {useEffect, useState, useCallback} from 'react';
-import axios from "axios";
 import Header from "./Header";
 import MyButton from "../UI/button/MyButton";
 import PatientFormEdit from "./PatientFormEdit";
 import SendComment from "./comments/SendComment";
 import MainBlock from "./MainBlock";
+import PostService from "../../API/PostService";
 
 const PatientInfo = ({id, edit, setEdit, deletePatient, updRightPanel}) => {
 
@@ -13,11 +13,11 @@ const PatientInfo = ({id, edit, setEdit, deletePatient, updRightPanel}) => {
 
     const [info, setInfo] = useState('')
     const getInfoPatient = useCallback(async () => {
-        const response = await axios.get(`http://127.0.0.1:8000/api-patients/patient-detail/${id}/`)
-        const response_comments = await axios.get(`http://127.0.0.1:8000/api-patients/comments-detail/${id}/`)
+        const response = await PostService.DetailPatient(id)
+        const response_comments = await PostService.CommentPatient(id)
         setInfo(response.data)
         setComments(response_comments.data)
-        setComment({...comment, "comment_id": id})
+        setComment({comment: '', comment_id: id})
     }, [id])
 
 
@@ -44,7 +44,7 @@ const PatientInfo = ({id, edit, setEdit, deletePatient, updRightPanel}) => {
                 <span><MyButton onClick={() => setEdit(true)}>Edit</MyButton></span>
                 <span><MyButton onClick={deletePatient}>Delete</MyButton></span>
             </Header>
-            <MainBlock info={info} comments={comments}/>
+            <MainBlock info={info} comments={comments} create={createComment} comment={comment} setComment={setComment}/>
             <SendComment create={createComment} comment={comment} setComment={setComment}/>
         </div>
     );

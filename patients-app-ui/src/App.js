@@ -1,9 +1,8 @@
 import './styles/App.css'
 import {useEffect, useState} from "react";
 import PatientList from "./components/LeftPanel/PatientList";
-import axios from "axios";
 import MyButton from "./components/UI/button/MyButton";
-import {usePosts} from "./hooks/useSearch"
+import {usePatient} from "./hooks/useSearch"
 import {useFetch} from "./hooks/useFetch"
 import Search from "./components/LeftPanel/Search";
 import MyModal from "./components/UI/MyModal/MyModal";
@@ -12,28 +11,31 @@ import Panel from "./components/Panel";
 import LeftPanle from "./components/LeftPanel/LeftPanle";
 import RightPanel from "./components/RightPanel/RightPanel";
 import PatientInfo from "./components/RightPanel/PatientInfo";
+import PostService from "./API/PostService";
 
 function App() {
-    const [edit, setEdit] = useState(false)
-    const [patients, setPatients] = useState([])
-    const [filter, setFilter] = useState({query: ''})
-    const [modal, setModal] = useState(false)
-    const getSearch = usePosts(patients, filter.query)
-    const [idPatient, setIdPatient] = useState('')
-    const [enableDel, setEnableDel] = useState(false)
-    const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
-        const response = await axios.get('http://127.0.0.1:8000/api-patients/patient-list/')
+    const [edit, setEdit] = useState(false)                 // Status for the Edit button that changes the right panel to the patient edit panel
+    const [patients, setPatients] = useState([])            // List of all patients
+    const [filter, setFilter] = useState({query: ''})       // State for Patient search filter
+    const [modal, setModal] = useState(false)               // State for open/closed Modal window
+    const getSearch = usePatient(patients, filter.query)                // Get a list of found patients
+    const [idPatient, setIdPatient] = useState('')          // State for id patient
+    const [enableDel, setEnableDel] = useState(false)                       // State which Lets you know when to delete a user
+    const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {      // Custom hook for error handling and page loading
+        const response = await PostService.getPatient()
         setPatients(response.data)
-        const responseFirstId = await axios.get('http://127.0.0.1:8000/api-patients/patient-first/')
+        const responseFirstId = await PostService.getFirstPatient()
         setIdPatient(responseFirstId.data.id)
+        setEnableDel(false)
     })
 
     useEffect(() => {
         fetchPosts()
     }, [enableDel])
 
-    const createPatient = (newPost) => {
+    const createPatient = async (newPost) => {
         setPatients([newPost, ...patients])
+        setIdPatient(newPost.id)
         setModal(false)
     }
 
@@ -46,12 +48,8 @@ function App() {
     }
 
     const deletePatient = async () => {
-        await axios.delete(`http://127.0.0.1:8000/api-patients/patient-delete/${idPatient}/`)
-        const responseFirstId = await axios.get('http://127.0.0.1:8000/api-patients/patient-first/')
+        await PostService.DeletePatient(idPatient)
         setEnableDel(true)
-        setIdPatient(responseFirstId.id)
-        setEdit(false)
-        setEnableDel(false)
     }
 
     return (

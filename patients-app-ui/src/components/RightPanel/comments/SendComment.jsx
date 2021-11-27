@@ -1,24 +1,19 @@
-import React, {useState} from 'react';
 import Input from "../../UI/myinput/Input";
 import MyButton from "../../UI/button/MyButton";
-import axios from "axios";
+import {AddComment} from "../../utils/AddComment";
 
 const SendComment = ({create, comment, setComment}) => {
 
     const addComment = async (e) => {
         e.preventDefault()
-        const postPat = await axios.post('http://127.0.0.1:8000/api-patients/comment-create/', comment)
-
-        console.log(postPat.data)
-        create(postPat.data)
-        setComment({...comment, "comment": ""})
+        AddComment(comment, setComment, create)
     }
 
 
     return (
         <div className="send-comment">
             <div className="input-sendMessage">
-                <Input type="text" value={comment.comment}
+                <Input type="textarea" value={comment.comment}
                        onChange={e => setComment({...comment, "comment": e.target.value})}/>
             </div>
             {comment.comment

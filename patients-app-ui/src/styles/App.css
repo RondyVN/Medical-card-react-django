@@ -160,19 +160,10 @@ table {
     margin-top: 20px;
     border-radius: 25px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    text-align: center;
-    width: 700px;
-    display: inline-block;
+    flex-direction: row-reverse;
+    padding: 15px 20px 0 20px;
     word-break:break-all;
-    float: right;
-    height: 100px;
-    max-height: 100px;
+    height: 100vh;
+    max-height: 110px;
+    margin-bottom: 20px;
 }
-/*
-.chat-panel {
-    border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background-color: white;
-    align-items: stretch;
-}*/
-/* -------------------- */

@@ -1,7 +1,8 @@
-import React from 'react';
 import Input from "./UI/myinput/Input";
 
 const Form = ({post, setPost, children}) => {
+
+
     return (
         <form>
             <Input
@@ -24,19 +25,25 @@ const Form = ({post, setPost, children}) => {
                 value={post.sex}
                 onChange={e => setPost({...post, sex: e.target.value})}
             >
+                <option disabled value="">Choose sex</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
+            <Input
+                value={post.country}
+                onChange={e => setPost({...post, country: e.target.value})}
+                type="text"
+                placeholder="Country"/>
             <Input
                 value={post.state}
                 onChange={e => setPost({...post, state: e.target.value})}
                 type="text"
                 placeholder="State"/>
             <Input
-                value={post.country}
-                onChange={e => setPost({...post, country: e.target.value})}
+                value={post.address}
+                onChange={e => setPost({...post, address: e.target.value})}
                 type="text"
-                placeholder="Country"/>
+                placeholder="Address"/>
             {children}
         </form>
     );

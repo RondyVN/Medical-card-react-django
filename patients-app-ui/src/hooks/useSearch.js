@@ -1,12 +1,12 @@
 import {useMemo} from "react";
 
-export const usePosts = (patients, query) => {
-    const sortedPosts = patients
+export const usePatient = (patients, query) => {
+    const patientList = patients
 
-    const sortedAndSearchedPost = useMemo(() => {
-        return sortedPosts.filter(post => post.first_name.toLowerCase().includes(query.toLowerCase().trim()) || post.last_name.toLowerCase().includes(query.toLowerCase().trim()))
-    }, [query, sortedPosts])
+    const SearchedPatient = useMemo(() => {
+        return patientList.filter(patient => patient.first_name.toLowerCase().includes(query.toLowerCase()) || patient.last_name.toLowerCase().includes(query.toLowerCase()))
+    }, [query, patientList])
 
-    return sortedAndSearchedPost
+    return SearchedPatient
 
 }

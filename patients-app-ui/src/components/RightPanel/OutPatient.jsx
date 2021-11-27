@@ -22,8 +22,8 @@ const OutPatient = ({info}) => {
                         <td>{info.state}</td>
                     </tr>
                     <tr>
-                        <td>Date of birth:</td>
-                        <td>{info.date_birth}</td>
+                        <td>Address</td>
+                        <td>{info.address}</td>
                     </tr>
             </tbody>
             </table>

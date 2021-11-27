@@ -9,7 +9,7 @@ from .models import Patients, Comments
 
 @csrf_exempt
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', {})
 
 
 @api_view(['GET'])
