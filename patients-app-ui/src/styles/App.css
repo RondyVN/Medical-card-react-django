@@ -53,6 +53,10 @@ body {
     cursor: pointer;
 }
 
+.choose-patient {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
 .patient:hover {
     background-color: #555555;
     color: white;
@@ -104,17 +108,23 @@ span {
     margin-right: 20px;
 }
 
+.position-header-info {
+    font-size: 25px;
+    float: left;
+}
+
 .header-right-panel {
+    word-break:break-all;
     border-bottom: 1px solid black;
     margin-bottom: 10px;
 }
 
 .out-patient {
     font-family: Georgia, serif;
-    font-size: 25px;
+    font-size: 20px;
     padding-top: 20px;
     width: 400px;
-    word-break:break-all;
+    word-break: break-word;
 }
 
 table {
@@ -132,7 +142,7 @@ table {
 .main-block{
     display: flex;
     flex-wrap: inherit;
-    word-break:break-all;
+    word-break: break-word;
 }
 
 .comment-panel {
@@ -162,7 +172,7 @@ table {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     flex-direction: row-reverse;
     padding: 15px 20px 0 20px;
-    word-break:break-all;
+    word-break: break-word;
     height: 100vh;
     max-height: 110px;
     margin-bottom: 20px;

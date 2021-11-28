@@ -1,8 +1,9 @@
 import Input from "./UI/myinput/Input";
+import MySelect from "./UI/MySelect/MySelect";
+import {useState} from "react";
 
 const Form = ({post, setPost, children}) => {
-
-
+    const [type, setType] = useState('text')
     return (
         <form>
             <Input
@@ -19,16 +20,19 @@ const Form = ({post, setPost, children}) => {
             <Input
                 value={post.date_birth}
                 onChange={e => setPost({...post, date_birth: e.target.value})}
-                type="date"
+                type={type}
+                onFocus={() => setType('date')}
+                onBlur={() => setType('text')}
                 placeholder="Date birth"/>
-            <select
+            <MySelect
+                defaultValue={'Select gender'}
                 value={post.sex}
-                onChange={e => setPost({...post, sex: e.target.value})}
-            >
-                <option disabled value="">Choose sex</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
+                onChange={e => setPost({...post, sex: e})}
+                option={[
+                    {value: 'Male', name: 'Male'},
+                    {value: 'Female', name: 'Female'},
+                ]}
+            />
             <Input
                 value={post.country}
                 onChange={e => setPost({...post, country: e.target.value})}

@@ -1,7 +1,16 @@
 import React from 'react';
-import CommentItem from "../CommentItem";
+import CommentItem from "./CommentItem";
 
 const CommentsPanel = ({comments}) => {
+    if (!comments.length) {
+        return (
+            <div className="comment-panel">
+                <h1 style={{textAlign: 'center'}}>
+                    There are no comments yet
+                </h1>
+            </div>
+        )
+    }
     return (
         <div className="comment-panel">
             {comments.map(e =>

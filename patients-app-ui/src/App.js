@@ -14,14 +14,14 @@ import PatientInfo from "./components/RightPanel/PatientInfo";
 import PostService from "./API/PostService";
 
 function App() {
-    const [edit, setEdit] = useState(false)                 // Status for the Edit button that changes the right panel to the patient edit panel
-    const [patients, setPatients] = useState([])            // List of all patients
-    const [filter, setFilter] = useState({query: ''})       // State for Patient search filter
-    const [modal, setModal] = useState(false)               // State for open/closed Modal window
-    const getSearch = usePatient(patients, filter.query)                // Get a list of found patients
-    const [idPatient, setIdPatient] = useState('')          // State for id patient
-    const [enableDel, setEnableDel] = useState(false)                       // State which Lets you know when to delete a user
-    const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {      // Custom hook for error handling and page loading
+    const [edit, setEdit] = useState(false)
+    const [patients, setPatients] = useState([])
+    const [filter, setFilter] = useState({query: ''})
+    const [modal, setModal] = useState(false)
+    const getSearch = usePatient(patients, filter.query)
+    const [idPatient, setIdPatient] = useState('')
+    const [enableDel, setEnableDel] = useState(false)
+    const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
         const response = await PostService.getPatient()
         setPatients(response.data)
         const responseFirstId = await PostService.getFirstPatient()
@@ -68,7 +68,7 @@ function App() {
                     </MyModal>
                     {isPostsLoading
                         ? <div>Loading...</div>
-                        : <PatientList setId={setId} patients={getSearch}/>
+                        : <PatientList setId={setId} patients={getSearch} id={idPatient}/>
                     }
                 </LeftPanle>
 

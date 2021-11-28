@@ -5,6 +5,7 @@ const Header = ({children}) => {
     return (
         <header className="header-right-panel">
             <div className="placing-btn">
+
                 {children}
             </div>
         </header>

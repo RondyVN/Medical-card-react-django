@@ -8,7 +8,8 @@ class Patients(models.Model):
     sex = models.CharField(max_length=10, blank=True)
     country = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
-    address = models.CharField(max_length=30, blank=True)
+    address = models.CharField(max_length=100, blank=True)
+    year = models.IntegerField(blank=True, default=0)
 
 
     def __str__(self):

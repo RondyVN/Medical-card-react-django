@@ -1,6 +1,7 @@
 import Input from "../../UI/myinput/Input";
 import MyButton from "../../UI/button/MyButton";
 import {AddComment} from "../../utils/AddComment";
+import MyTextArea from "../../UI/MyTextArea/MyTextArea";
 
 const SendComment = ({create, comment, setComment}) => {
 
@@ -13,7 +14,7 @@ const SendComment = ({create, comment, setComment}) => {
     return (
         <div className="send-comment">
             <div className="input-sendMessage">
-                <Input type="textarea" value={comment.comment}
+                <MyTextArea type="textarea" value={comment.comment}
                        onChange={e => setComment({...comment, "comment": e.target.value})}/>
             </div>
             {comment.comment

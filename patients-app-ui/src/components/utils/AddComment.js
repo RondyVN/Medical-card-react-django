@@ -1,8 +1,8 @@
-import axios from "axios";
+import PostService from "../../API/PostService";
 
 export const AddComment = async (comment, setComment, create) => {
-    const postPat = await axios.post('http://127.0.0.1:8000/api-patients/comment-create/', comment)
+    const postComment = await PostService.CreateComment(comment)
 
-    create(postPat.data)
+    create(postComment.data)
     setComment({...comment, "comment": ""})
 }
