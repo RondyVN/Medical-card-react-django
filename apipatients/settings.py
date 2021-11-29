@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-mn$onhbix44_pg%qdzw)yirb6ow%e8&7**ugys!_tm#j@d2(qo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['medical-card.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'medical-card.herokuapp.com', 'localhost',]
 
 # Application definition
 
@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'apipatients.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'patients',
+        'USER': 'postgres',
+        'PASSWORD': '78uzirid',
+        'HOST': '127.0.0.1',
+        'PORT': 5432
+
     }
 }
 
