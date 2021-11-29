@@ -21,6 +21,7 @@ const Form = ({post, setPost, children}) => {
                 value={post.date_birth}
                 onChange={e => setPost({...post, date_birth: e.target.value})}
                 type={type}
+                max={new Date().toJSON().slice(0, 10)}
                 onFocus={() => setType('date')}
                 onBlur={() => setType('text')}
                 placeholder="Date birth"/>
