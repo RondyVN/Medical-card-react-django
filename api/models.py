@@ -16,7 +16,7 @@ class Patients(models.Model):
 
 
 class Comments(models.Model):
-    comment = models.TextField(max_length=500)
+    comment = models.TextField(max_length=2000)
     date_create = models.DateField(auto_now_add=True)
     comment_id = models.ForeignKey(Patients, on_delete=models.CASCADE)
 
