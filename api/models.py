@@ -9,7 +9,6 @@ class Patients(models.Model):
     country = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
     address = models.CharField(max_length=100, blank=True)
-    year = models.IntegerField(blank=True, default=0)
 
 
     def __str__(self):
@@ -17,7 +16,7 @@ class Patients(models.Model):
 
 
 class Comments(models.Model):
-    comment = models.TextField(max_length=500)
+    comment = models.TextField(max_length=2000)
     date_create = models.DateField(auto_now_add=True)
     comment_id = models.ForeignKey(Patients, on_delete=models.CASCADE)
 
