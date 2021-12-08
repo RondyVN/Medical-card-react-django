@@ -7,6 +7,7 @@ import MainBlock from "./MainBlock";
 import PostService from "../../API/PostService";
 import {getOld} from "../utils/CreatePatient";
 import InfoOldName from "./InfoOldName";
+import {useParams} from "react-router-dom";
 
 const PatientInfo = ({id, edit, setEdit, deletePatient, updRightPanel}) => {
 

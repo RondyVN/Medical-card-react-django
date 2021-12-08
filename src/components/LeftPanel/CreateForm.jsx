@@ -11,7 +11,6 @@ const CreateForm = ({create}) => {
     const addNewPost = async (e) => {
         e.preventDefault()
         CreatePatient(post, setPost, create)
-        //setPost({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''})
     }
 
 
