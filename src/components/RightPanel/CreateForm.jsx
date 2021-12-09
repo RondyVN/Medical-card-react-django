@@ -10,14 +10,14 @@ const CreateForm = ({create}) => {
     const [post, setPost] = useState({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''});
     const {setCreateEnable} = useContext(CreateEnable)
     const addNewPatient = async (e) => {
-        CreatePatient(post, setPost, create, setCreateEnable)
+        CreatePatient(post, setPost, create)
     }
 
 
     return (
         <div>
             <Header>
-                <span><MyButton onClick={addNewPatient}>Add patient</MyButton></span>
+                <span onClick={() => setCreateEnable(false)}><MyButton onClick={addNewPatient}>Add patient</MyButton></span>
                 <span><MyButton onClick={() => setCreateEnable(false)}>Cancel</MyButton></span>
             </Header>
             <Form post={post} setPost={setPost} />
