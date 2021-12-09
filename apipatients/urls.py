@@ -18,7 +18,9 @@ from django.urls import path, include
 from api.views import index
 
 urlpatterns = [
-    path('<path:route>', index),
+    path('', index),
+    path('patient/', index),
+    path('patient/<int:id>', index),
     path('admin/', admin.site.urls),
     path('api-patients/', include('api.urls'))
 ]
