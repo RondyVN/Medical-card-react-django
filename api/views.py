@@ -8,7 +8,12 @@ from .models import Patients, Comments
 
 
 @csrf_exempt
-def index(request, id):
+def index(request):
+    return render(request, 'index.html', {})
+
+
+@csrf_exempt
+def patient_id(request, id):
     return render(request, 'index.html', {})
 
 
@@ -108,4 +113,3 @@ def comment_delete(request, pk_comment):
     comment = Comments.objects.get(id=pk_comment)
     comment.delete()
     return Response("Task Deleted Successfully")
-
