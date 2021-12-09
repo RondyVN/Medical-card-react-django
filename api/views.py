@@ -8,7 +8,7 @@ from .models import Patients, Comments
 
 
 @csrf_exempt
-def index(request):
+def index(request, id):
     return render(request, 'index.html', {})
 
 
