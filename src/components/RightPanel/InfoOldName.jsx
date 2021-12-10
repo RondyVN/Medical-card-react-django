@@ -7,7 +7,10 @@ const InfoOldName = ({info}) => {
     return (
         <span className="position-header-info">
             <span className="">{info.first_name} {info.last_name}</span>
-            <span><Moment fromNow ago>{info.date_birth}</Moment></span>
+            {info.date_birth
+                ?<span><Moment fromNow ago>{info.date_birth}</Moment></span>
+                :<div>{info.date_birth}</div>
+            }
         </span>
     );
 };

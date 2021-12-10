@@ -12,6 +12,12 @@ export default class PostService {
         return responseFirstId
     }
 
+    static async getFirstId() {
+        const responseFirstId = await axios.get('/api-patients/patient-first/')
+        const data = await responseFirstId.data.id
+        return data
+    }
+
     static async DeletePatient(idPatient) {
         await axios.delete(`/api-patients/patient-delete/${idPatient}/`)
     }

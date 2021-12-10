@@ -1,13 +1,12 @@
 import React from 'react';
 import {useHistory} from "react-router-dom";
-import Moment from "react-moment";
 
 const PatientItem = (props) => {
 
 
     const router = useHistory()
     return (
-        <div className={props.id === props.patients.id ? "patient choose-patient" : "patient" } onClick={() => router.push(`/patient/${props.patients.id}`)}>
+        <div className="patient" onClick={() => router.push(`/patient/${props.patients.id}`)}>
             <div className="first-last-name">
                 {props.patients.first_name} {props.patients.last_name}
             </div>

@@ -6,11 +6,8 @@ import SendComment from "./comments/SendComment";
 import MainBlock from "./MainBlock";
 import PostService from "../../API/PostService";
 import InfoOldName from "./InfoOldName";
-import CreateForm from "./CreateForm";
-import {CreateEnable} from "../../context";
 
-const PatientInfo = ({id, deletePatient, updRightPanel, create}) => {
-    const {createEnable} = useContext(CreateEnable)
+const PatientInfo = ({id, deletePatient, updRightPanel}) => {
     const [edit, setEdit] = useState(false)
     const [comments, setComments] = useState([])
     const [comment, setComment] = useState({"comment": "", "comment_id": ""})
@@ -31,14 +28,11 @@ const PatientInfo = ({id, deletePatient, updRightPanel, create}) => {
         getInfoPatient()
     }, [edit, getInfoPatient])
 
-    if (edit || createEnable) {
+    if (edit) {
         return (
             <div>
-                {!createEnable
-                    ? <PatientFormEdit post={info} setPost={setInfo} setEdit={setEdit} updRightPanel={updRightPanel}
-                                       deletePatient={deletePatient}/>
-                    : <CreateForm create={create}/>
-                }
+                <PatientFormEdit post={info} setPost={setInfo} setEdit={setEdit} updRightPanel={updRightPanel}
+                                 deletePatient={deletePatient}/>
             </div>
         )
     }

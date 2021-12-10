@@ -2,7 +2,7 @@ import React from 'react';
 import PatientItem from "./PatientItem";
 
 
-const PatientList = ({patients, id}) => {
+const PatientList = ({patients}) => {
     if (!patients.length) {
         return (
             <div>
@@ -16,7 +16,7 @@ const PatientList = ({patients, id}) => {
     return (
         <div>
             {patients.map(e =>
-                <PatientItem key={e.id} id={id} patients={e}/>
+                <PatientItem key={e.id} patients={e}/>
             )}
         </div>
     );
