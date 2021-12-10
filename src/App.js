@@ -9,13 +9,10 @@ import CreateForm from "./pages/CreateForm";
 
 
 function App() {
-    const [createEnable, setCreateEnable] = useState(false)
     const [patients, setPatients] = useState([])
 
     return (
         <CreateEnable.Provider value={{
-            createEnable,
-            setCreateEnable,
             patients,
             setPatients
         }}>
@@ -35,7 +32,7 @@ function App() {
                             <Route exact path="/patient/:id/edit">
                                 <MainPage/>
                             </Route>
-                            <Redirect to="/patient/42"/>
+                            <Redirect to="/patient"/>
                         </Switch>
                     </Panel>
                 </div>

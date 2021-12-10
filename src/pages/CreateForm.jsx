@@ -13,7 +13,6 @@ const CreateForm = () => {
     const [post, setPost] = useState({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''});
     const {setCreateEnable} = useContext(CreateEnable)
     const addNewPatient = async (e) => {
-        e.preventDefault()
         const postPat = await PostService.CreatePatient(post)
         setPatients([postPat.data, ...patients])
         route.push(`/patient/${postPat.data.id}`)

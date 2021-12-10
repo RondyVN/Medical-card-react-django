@@ -17,6 +17,7 @@ const Panel = ({children}) => {
     const getSearch = usePatient(patients, filter.query)
     const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
         const response = await PostService.getPatient()
+        route.push(`/patient/${response.data[0].id}`)
         setPatients(response.data)
     })
 

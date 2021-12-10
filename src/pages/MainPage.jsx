@@ -10,12 +10,6 @@ function MainPage() {
     const router = useHistory();
     const [patients, setPatients] = useState([])
 
-
-    const createPatient = async (newPost) => {
-        setPatients([newPost, ...patients])
-        router.push(`/patient/${newPost.id}`)
-    }
-
     const updPatient = (patient) => {
         setPatients([...patient])
     }
@@ -29,7 +23,7 @@ function MainPage() {
             {!params.id
                 ? <div>Loading...</div>
                 : <PatientInfo id={params.id} deletePatient={deletePatient}
-                               updRightPanel={updPatient} create={createPatient}
+                               updRightPanel={updPatient}
                 />
             }
         </div>
