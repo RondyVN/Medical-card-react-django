@@ -5,7 +5,7 @@ import MainPage from "./pages/MainPage";
 import {CreateEnable} from "./context";
 import React, {useState} from "react";
 import Panel from "./components/Panel";
-import CreateForm from "./components/RightPanel/CreateForm";
+import CreateForm from "./pages/CreateForm";
 
 
 function App() {

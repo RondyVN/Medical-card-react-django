@@ -1,12 +1,11 @@
 import React, {useContext} from 'react';
 import {useState} from "react";
-import MyButton from "../UI/button/MyButton";
-import Form from "../Form";
-import {CreatePatient} from "../utils/CreatePatient";
-import Header from "./Header";
-import {CreateEnable} from "../../context";
+import MyButton from "../components/UI/button/MyButton";
+import Form from "../components/Form";
+import Header from "../components/RightPanel/Header";
+import {CreateEnable} from "../context";
 import {useHistory} from "react-router-dom";
-import PostService from "../../API/PostService";
+import PostService from "../API/PostService";
 
 const CreateForm = () => {
     const route = useHistory()
