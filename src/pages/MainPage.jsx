@@ -1,30 +1,18 @@
-import React, {useState} from 'react';
-
-import PostService from "../API/PostService";
+import React, {useContext} from 'react';
 import PatientInfo from "../components/RightPanel/PatientInfo";
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
+import {Patients} from "../context";
 
 
 function MainPage() {
     const params = useParams();
-    const router = useHistory();
-    const [patients, setPatients] = useState([])
-
-    const updPatient = (patient) => {
-        setPatients([...patient])
-    }
-
-    const deletePatient = async () => {
-        await PostService.DeletePatient(params.id)
-    }
+    const {patient} = useContext(Patients)
 
     return (
         <div>
-            {!params.id
+            {!patient.id
                 ? <div>Loading...</div>
-                : <PatientInfo id={params.id} deletePatient={deletePatient}
-                               updRightPanel={updPatient}
-                />
+                : <PatientInfo id={params.id} />
             }
         </div>
     );

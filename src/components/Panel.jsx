@@ -8,16 +8,17 @@ import {usePatient} from "../hooks/useSearch";
 import {useFetch} from "../hooks/useFetch";
 import PostService from "../API/PostService";
 import RightPanel from "./RightPanel/RightPanel";
-import {CreateEnable} from "../context";
+import {Patients} from "../context";
 
 const Panel = ({children}) => {
     const route = useHistory()
-    const {patients, setPatients} = useContext(CreateEnable)
+    const {patients, setPatients, setPatient} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
     const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
         const response = await PostService.getPatient()
         route.push(`/patient/${response.data[0].id}`)
+        setPatient(response.data[0])
         setPatients(response.data)
     })
 
@@ -25,13 +26,9 @@ const Panel = ({children}) => {
         fetchPosts()
     }, [])
 
-    const createPatient = async (newPost) => {
-        setPatients([newPost, ...patients])
-        route.push(`/patient/${newPost.id}`)
-    }
-
     return (
         <div className="panels">
+            {postError}
             <LeftPanle>
                 <Search filter={filter} setFilter={setFilter}/>
                 <MyButton onClick={() => route.push('/patient/create')}>
@@ -42,7 +39,7 @@ const Panel = ({children}) => {
                     : <PatientList patients={getSearch} />
                 }
             </LeftPanle>
-            <RightPanel create={createPatient}>
+            <RightPanel>
                 {children}
             </RightPanel>
         </div>

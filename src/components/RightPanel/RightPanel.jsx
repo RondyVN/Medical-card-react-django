@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RightPanel = (props) => {
+const RightPanel = ({children}) => {
     return (
         <div className="right-panel">
-            {props.children}
+            {children}
         </div>
     );
 };

@@ -2,19 +2,21 @@ import './styles/App.css'
 
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import {CreateEnable} from "./context";
+import {Patients} from "./context";
 import React, {useState} from "react";
 import Panel from "./components/Panel";
 import CreateForm from "./pages/CreateForm";
+import PatientFormEdit from "./pages/PatientFormEdit";
 
 
 function App() {
     const [patients, setPatients] = useState([])
+    const [patient, setPatient] = useState({})
 
     return (
-        <CreateEnable.Provider value={{
-            patients,
-            setPatients
+        <Patients.Provider value={{
+            patients, setPatients,
+            patient, setPatient
         }}>
             <BrowserRouter>
                 <div className="App">
@@ -30,14 +32,14 @@ function App() {
                                 <MainPage/>
                             </Route>
                             <Route exact path="/patient/:id/edit">
-                                <MainPage/>
+                                <PatientFormEdit/>
                             </Route>
                             <Redirect to="/patient"/>
                         </Switch>
                     </Panel>
                 </div>
             </BrowserRouter>
-        </CreateEnable.Provider>
+        </Patients.Provider>
     );
 }
 
