@@ -9,11 +9,12 @@ import PostService from "../API/PostService";
 
 const CreateForm = () => {
     const route = useHistory()
-    const {patients, setPatients, patient} = useContext(Patients)
+    const {patients, setPatients, patient, setPatient} = useContext(Patients)
     const [post, setPost] = useState({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''});
     const addNewPatient = async () => {
         const postPat = await PostService.CreatePatient(post)
         setPatients([postPat.data, ...patients])
+        setPatient(postPat.data)
         route.push(`/patient/${postPat.data.id}`)
     }
 

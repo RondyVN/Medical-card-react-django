@@ -12,6 +12,8 @@ import PatientFormEdit from "./pages/PatientFormEdit";
 function App() {
     const [patients, setPatients] = useState([])
     const [patient, setPatient] = useState({})
+    const asd = patient
+    console.log(patient)
 
     return (
         <Patients.Provider value={{

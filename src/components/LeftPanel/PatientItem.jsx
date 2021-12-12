@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useHistory} from "react-router-dom";
+import {Patients} from "../../context";
 
 
 const PatientItem = (props) => {
 
     const router = useHistory()
+    const {setPatient} = useContext(Patients)
 
     const pushId = () => {
+        setPatient(props.patients)
         router.push(`/patient/${props.patients.id}`)
     }
 

@@ -15,9 +15,9 @@ const PatientInfo = ({id}) => {
     const [comments, setComments] = useState([])
     const [comment, setComment] = useState({"comment": "", "comment_id": ""})
     const getInfoPatient = useCallback(async () => {
-        const response = await PostService.DetailPatient(id)
+        //const response = await PostService.DetailPatient(id)
         const response_comments = await PostService.CommentPatient(id)
-        setPatient(response.data)
+        //setPatient(response.data)
         setComments(response_comments.data)
         setComment({comment: '', comment_id: id})
     }, [id])

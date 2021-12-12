@@ -6,14 +6,10 @@ import {Patients} from "../context";
 
 function MainPage() {
     const params = useParams();
-    const {patient} = useContext(Patients)
 
     return (
         <div>
-            {!patient.id
-                ? <div>Loading...</div>
-                : <PatientInfo id={params.id} />
-            }
+            <PatientInfo id={params.id}/>
         </div>
     );
 }
