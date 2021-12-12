@@ -12,13 +12,13 @@ import {Patients} from "../context";
 
 const Panel = ({children}) => {
     const route = useHistory()
-    const {patients, setPatients, setPatient} = useContext(Patients)
+    const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
     const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
         const response = await PostService.getPatient()
-        route.push(`/patient/${response.data[0].id}`)
-        setPatient(response.data[0])
+        //route.push(`/patient/${response.data[0].id}`)
+        //setPatient(response.data[0])
         setPatients(response.data)
     })
 

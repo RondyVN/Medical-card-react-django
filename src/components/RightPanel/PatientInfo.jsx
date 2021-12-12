@@ -10,14 +10,14 @@ import Delete from "../UI/Delete/Delete";
 import {Patients} from "../../context";
 
 const PatientInfo = ({id}) => {
-    const router = useHistory()
+    const history = useHistory()
     const {patient, setPatient} = useContext(Patients)
     const [comments, setComments] = useState([])
     const [comment, setComment] = useState({"comment": "", "comment_id": ""})
     const getInfoPatient = useCallback(async () => {
-        //const response = await PostService.DetailPatient(id)
+        const response = await PostService.DetailPatient(id)
         const response_comments = await PostService.CommentPatient(id)
-        //setPatient(response.data)
+        setPatient(response.data)
         setComments(response_comments.data)
         setComment({comment: '', comment_id: id})
     }, [id])
@@ -35,7 +35,7 @@ const PatientInfo = ({id}) => {
         <div>
             <Header>
                 <InfoOldName info={patient}/>
-                <span><MyButton onClick={() => router.push(`/patient/${patient.id}/edit`)}>Edit</MyButton></span>
+                <span><MyButton onClick={() => history.push(`/patient/${patient.id}/edit`)}>Edit</MyButton></span>
                 <Delete/>
             </Header>
             <MainBlock info={patient} comments={comments} create={createComment} comment={comment}
