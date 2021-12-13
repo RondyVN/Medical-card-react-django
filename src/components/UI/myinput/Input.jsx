@@ -1,9 +1,19 @@
 import React from 'react';
 import cl from './Input.module.css'
+import {TextField} from "@mui/material";
 
 const Input = React.forwardRef((props, ref) => {
+
     return (
-        <input ref={ref} className={cl.MyInput} {...props}/>
+        <TextField
+            label="Search"
+            type="search"
+            variant="standard"
+            sx={{color: 'white'}}
+            fullWidth
+            ref={ref}
+            {...props}
+        />
     );
 });
 

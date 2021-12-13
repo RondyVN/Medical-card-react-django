@@ -9,6 +9,7 @@ import {useFetch} from "../hooks/useFetch";
 import PostService from "../API/PostService";
 import RightPanel from "./RightPanel/RightPanel";
 import {Patients} from "../context";
+import Header from "./RightPanel/Header";
 
 const Panel = ({children}) => {
     const route = useHistory()
@@ -31,9 +32,6 @@ const Panel = ({children}) => {
             {postError}
             <LeftPanle>
                 <Search filter={filter} setFilter={setFilter}/>
-                <MyButton onClick={() => route.push('/patient/create')}>
-                    Create user
-                </MyButton>
                 {isPostsLoading
                     ? <div>Loading...</div>
                     : <PatientList patients={getSearch} />

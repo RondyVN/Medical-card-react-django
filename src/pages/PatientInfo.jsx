@@ -34,9 +34,8 @@ const PatientInfo = () => {
 
     return (
         <div>
-            <Header>
-                <InfoOldName info={patient}/>
-                <span><MyButton onClick={() => history.push(`/patient/${patient.id}/edit`)}>Edit</MyButton></span>
+            <Header someInfo={patient}>
+                <MyButton onClick={() => history.push(`/patient/${patient.id}/edit`)}>Edit</MyButton>
                 <Delete/>
             </Header>
             <MainBlock info={patient} comments={comments} create={createComment} comment={comment}

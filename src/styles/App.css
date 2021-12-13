@@ -35,10 +35,9 @@ body {
 .left-panel {
     overflow-y: scroll;
     /*margin-right: 20px;*/
-    padding: 20px;
+    /*padding: 20px;*/
     /*max-height: 95vh;*/
     width: 400px;
-    border: 1px solid white;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     /*border-radius: 25px;*/
     background-color: white;
@@ -91,7 +90,7 @@ body {
 
 /* styles for right panel */
 .right-panel {
-    padding: 20px;
+    /*padding: 20px;*/
     width: 100%;
     /*max-height: 95vh;*/
     /*border-radius: 25px;*/

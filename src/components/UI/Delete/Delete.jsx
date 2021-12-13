@@ -3,6 +3,7 @@ import MyButton from "../button/MyButton";
 import {Patients} from "../../../context";
 import PostService from "../../../API/PostService";
 import {useHistory} from "react-router-dom";
+import {Button} from "@mui/material";
 
 const Delete = () => {
 
@@ -16,9 +17,13 @@ const Delete = () => {
     }
 
     return (
-        <span>
-            <MyButton onClick={deletePatient}>Delete</MyButton>
-        </span>
+        <Button
+            onClick={deletePatient}
+            variant="outlined"
+            sx={{ml: 3, height: 40}}
+        >
+            Delete
+        </Button>
     );
 };
 

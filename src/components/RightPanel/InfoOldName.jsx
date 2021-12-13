@@ -1,17 +1,22 @@
 import React from 'react';
 import Moment from "react-moment";
+import {Typography, Toolbar} from "@mui/material";
 
-const InfoOldName = ({info}) => {
+const InfoOldName = ({someInfo}) => {
 
 
     return (
-        <span className="position-header-info">
-            <span className="">{info.first_name} {info.last_name}</span>
-            {info.date_birth
-                ?<span><Moment fromNow ago>{info.date_birth}</Moment></span>
-                :<div>{info.date_birth}</div>
-            }
-        </span>
+        <>
+            <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                {someInfo.first_name} {someInfo.last_name}
+            </Typography>
+            <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                {someInfo.date_birth
+                    ?<Moment fromNow ago>{someInfo.date_birth}</Moment>
+                    :<div>{someInfo.date_birth}</div>
+                }
+            </Typography>
+        </>
     );
 };
 
