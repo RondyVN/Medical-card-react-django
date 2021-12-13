@@ -43,9 +43,9 @@ body {
     background-color: white;
 }
 
-/*
+
 .patient {
-    margin-top: 10px;
+    margin: 20px;
     border-radius: 25px;
     padding: 5px 20px 5px 20px;
     border: 1px solid white;
@@ -98,7 +98,7 @@ body {
     background-color: white;
 }
 
-/*
+
 .placing-btn {
     text-align: right;
     margin-bottom: 15px;
@@ -177,4 +177,3 @@ table {
     max-height: 110px;
     margin-bottom: 20px;
 }
-*/
