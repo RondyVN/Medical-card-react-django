@@ -16,6 +16,7 @@ const PatientFormEdit = () => {
         const response = await PostService.DetailPatient(id.id)
         setPatient(response.data)
     }, [id.id])
+
     useEffect(() => {
         getPatientInfo()
     }, [getPatientInfo])

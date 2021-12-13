@@ -1,18 +1,27 @@
 import './styles/App.css'
 
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import MainPage from "./pages/MainPage";
 import {Patients} from "./context";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Panel from "./components/Panel";
 import CreateForm from "./pages/CreateForm";
 import PatientFormEdit from "./pages/PatientFormEdit";
+import PatientInfo from "./pages/PatientInfo";
+import PostService from "./API/PostService";
 
 
 
 function App() {
     const [patients, setPatients] = useState([])
     const [patient, setPatient] = useState({})
+    const [id, setId] = useState('')
+    const getId = async () => {
+        const response = await PostService.getFirstPatient()
+        setId(`/patient/${response.data.id}`)
+    }
+    if (!id) {
+        getId()
+    }
 
     return (
             <Patients.Provider value={{
@@ -24,19 +33,19 @@ function App() {
                         <Panel>
                             <Switch>
                                 <Route exact path="/patient">
-                                    <MainPage/>
+                                    <PatientInfo/>
                                 </Route>
                                 <Route exact path="/patient/create">
                                     <CreateForm/>
                                 </Route>
                                 <Route exact path="/patient/:id">
-                                    <MainPage/>
+                                    <PatientInfo/>
                                 </Route>
                                 <Route exact path="/patient/:id/edit">
                                     <PatientFormEdit/>
                                 </Route>
                                 <Route exact path="/">
-                                    <Redirect to={`/patient/82`}/>
+                                    <Redirect to={id}/>
                                 </Route>
                             </Switch>
                         </Panel>

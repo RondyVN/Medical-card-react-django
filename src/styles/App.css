@@ -25,25 +25,26 @@ body {
 /* styles for panels */
 .panels {
     display: flex;
-    margin: 20px 20px 20px 20px;
+    /*margin: 20px 20px 20px 20px;*/
     height: 100%;
-    align-items: stretch;
+    /*align-items: stretch;*/
 }
 /* -------------------- */
 
 /* styles for left panel */
 .left-panel {
     overflow-y: scroll;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
     padding: 20px;
-    max-height: 95vh;
+    /*max-height: 95vh;*/
     width: 400px;
     border: 1px solid white;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    border-radius: 25px;
+    /*border-radius: 25px;*/
     background-color: white;
 }
 
+/*
 .patient {
     margin-top: 10px;
     border-radius: 25px;
@@ -63,7 +64,7 @@ body {
 }
 
 .patient {
-    -webkit-transition-duration: 0.4s; /* Safari */
+    -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
 }
 
@@ -92,13 +93,13 @@ body {
 .right-panel {
     padding: 20px;
     width: 100%;
-    max-height: 95vh;
-    border-radius: 25px;
+    /*max-height: 95vh;*/
+    /*border-radius: 25px;*/
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     background-color: white;
 }
 
-
+/*
 .placing-btn {
     text-align: right;
     margin-bottom: 15px;
@@ -177,3 +178,4 @@ table {
     max-height: 110px;
     margin-bottom: 20px;
 }
+*/

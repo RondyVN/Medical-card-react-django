@@ -1,15 +1,16 @@
 import React, {useEffect, useState, useCallback, useContext} from 'react';
-import Header from "./Header";
-import MyButton from "../UI/button/MyButton";
-import SendComment from "./comments/SendComment";
-import MainBlock from "./MainBlock";
-import PostService from "../../API/PostService";
-import InfoOldName from "./InfoOldName";
-import {useHistory} from "react-router-dom";
-import Delete from "../UI/Delete/Delete";
-import {Patients} from "../../context";
+import Header from "../components/RightPanel/Header";
+import MyButton from "../components/UI/button/MyButton";
+import SendComment from "../components/RightPanel/comments/SendComment";
+import MainBlock from "../components/RightPanel/MainBlock";
+import PostService from "../API/PostService";
+import InfoOldName from "../components/RightPanel/InfoOldName";
+import {useHistory, useParams} from "react-router-dom";
+import Delete from "../components/UI/Delete/Delete";
+import {Patients} from "../context";
 
-const PatientInfo = ({id}) => {
+const PatientInfo = () => {
+    const id = useParams().id
     const history = useHistory()
     const {patient, setPatient} = useContext(Patients)
     const [comments, setComments] = useState([])
