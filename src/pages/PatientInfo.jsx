@@ -6,7 +6,6 @@ import {useHistory, useParams} from "react-router-dom";
 import PatientGet from "../API/PatientGet";
 import CommentGet from "../API/CommentGet";
 import PatientPost from "../API/PatientPost";
-import PostService from "../API/PostService";
 import {Button} from "@mui/material";
 import {Patients} from "../context";
 

@@ -1,20 +1,20 @@
 import React, {useContext} from 'react';
 import {useState} from "react";
-import Form from "../components/Form";
+import FormPatientInfo from "../components/RightPanel/FormPatientInfo";
 import Header from "../components/RightPanel/Header";
 import {Patients} from "../context";
 import {useHistory} from "react-router-dom";
-import PostService from "../API/PostService";
 import {Button} from "@mui/material";
+import PatientPost from "../API/PatientPost";
 
 const PatientCreateForm = () => {
     const history = useHistory()
     const {patients, setPatients} = useContext(Patients)
     const [patient, setPatient] = useState({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''});
     const addNewPatient = async () => {
-        const patient = await PostService.CreatePatient(patient)
-        setPatients([patient.data, ...patients])
-        history.push(`/patient/${patient.data.id}`)
+        const patientCreated = await PatientPost.create(patient)
+        setPatients([patientCreated.data, ...patients])
+        history.push(`/patient/${patientCreated.data.id}`)
     }
 
     return (
@@ -24,6 +24,7 @@ const PatientCreateForm = () => {
                     onClick={addNewPatient}
                     variant="outlined"
                     sx={{ml: 3, height: 40}}
+                    color="success"
                 >
                     Add patient
                 </Button>
@@ -35,7 +36,7 @@ const PatientCreateForm = () => {
                     Cancel
                 </Button>
             </Header>
-            <Form patient={patient} setPatient={setPatient} />
+            <FormPatientInfo patient={patient} setPatient={setPatient} />
         </div>
     );
 };

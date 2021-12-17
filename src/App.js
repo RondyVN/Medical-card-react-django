@@ -3,7 +3,7 @@ import './styles/App.css'
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import {Patients} from "./context";
 import React, {useState} from "react";
-import Panel from "./components/Panel";
+import Layout from "./components/Layout/Layout";
 import PatientCreateForm from "./pages/PatientCreateForm";
 import PatientEditForm from "./pages/PatientEditForm";
 import PatientInfo from "./pages/PatientInfo";
@@ -30,7 +30,7 @@ function App() {
             }}>
                 <BrowserRouter>
                     <div className="App">
-                        <Panel>
+                        <Layout>
                             <Switch>
                                 <Route exact path="/patient">
                                     <PatientInfo/>
@@ -48,7 +48,7 @@ function App() {
                                     <Redirect to={id}/>
                                 </Route>
                             </Switch>
-                        </Panel>
+                        </Layout>
                     </div>
                 </BrowserRouter>
             </Patients.Provider>

@@ -1,6 +1,5 @@
 import Header from "../components/RightPanel/Header";
-import Form from "../components/Form";
-import PostService from "../API/PostService";
+import FormPatientInfo from "../components/RightPanel/FormPatientInfo";
 import React, {useContext, useEffect, useState} from "react";
 import {Patients} from "../context";
 import {useHistory, useParams} from "react-router-dom";
@@ -46,7 +45,7 @@ const PatientEditForm = () => {
                     Delete
                 </Button>
             </Header>
-            <Form patient={patient} setPatient={setPatient}/>
+            <FormPatientInfo patient={patient} setPatient={setPatient}/>
         </div>
     );
 };

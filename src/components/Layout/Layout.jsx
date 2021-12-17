@@ -1,14 +1,14 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import Search from "./LeftPanel/Search";
-import PatientList from "./LeftPanel/PatientList";
-import LeftPanel from "./LeftPanel/LeftPanel";
-import {usePatient} from "../hooks/useSearch";
-import RightPanel from "./RightPanel/RightPanel";
-import {Patients} from "../context";
-import PatientGet from "../API/PatientGet";
+import Search from "../LeftPanel/Search";
+import PatientList from "../LeftPanel/PatientList";
+import LeftPanel from "../LeftPanel/LeftPanel";
+import {usePatient} from "../../hooks/useSearch";
+import RightPanel from "../RightPanel/RightPanel";
+import {Patients} from "../../context";
+import PatientGet from "../../API/PatientGet";
 import {useHistory} from "react-router-dom";
 
-const Panel = ({children}) => {
+const Layout = ({children}) => {
     const history = useHistory()
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
@@ -35,4 +35,4 @@ const Panel = ({children}) => {
     );
 };
 
-export default Panel;
+export default Layout;

@@ -1,7 +1,7 @@
 import React from "react";
 import {FormControl, TextField, Grid, FormLabel, Paper, RadioGroup, FormControlLabel, Radio} from "@mui/material";
 
-const Form = ({patient, setPatient}) => {
+const FormPatientInfo = ({patient, setPatient}) => {
     const paperStyle = {padding: '30px 30px', width: 500, margin: "20px auto"}
     const marginTop = {marginTop: 5}
     const marginInput = {margin: 5}
@@ -57,4 +57,4 @@ const Form = ({patient, setPatient}) => {
     )
 }
 
-export default Form;
+export default FormPatientInfo;
