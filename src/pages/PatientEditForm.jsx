@@ -27,7 +27,7 @@ const PatientEditForm = () => {
 
     const deletePatient = async () => {
         await PatientPost.delete(id.id)
-        const patients = await PostService.getPatient()
+        const patients = await PatientGet.get()
         setPatients([...patients.data])
         history.push(`/patient/${patients.data[0].id}`)
     }
