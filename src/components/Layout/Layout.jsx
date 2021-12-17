@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import Search from "../LeftPanel/Search";
 import PatientList from "../LeftPanel/PatientList";
 import LeftPanel from "../LeftPanel/LeftPanel";

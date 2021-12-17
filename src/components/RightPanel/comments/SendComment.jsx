@@ -1,6 +1,6 @@
-import MyButton from "../../UI/button/MyButton";
+
 import {AddComment} from "../../utils/AddComment";
-import MyTextArea from "../../UI/MyTextArea/MyTextArea";
+import {Button, TextField} from "@mui/material";
 
 const SendComment = ({create, comment, setComment}) => {
 
@@ -13,13 +13,12 @@ const SendComment = ({create, comment, setComment}) => {
     return (
         <div className="send-comment">
             <div className="input-sendMessage">
-                <MyTextArea type="textarea" value={comment.comment}
-                       onChange={e => setComment({...comment, "comment": e.target.value})}/>
+                <TextField onChange={e => setComment({...comment, "comment": e.target.value})}/>
             </div>
-            {comment.comment
-                ? <MyButton disabled={false} onClick={addComment}>Send comment</MyButton>
-                : <MyButton disabled={true} onClick={addComment}>Send comment</MyButton>
-            }
+
+            <Button onClick={addComment} variant="outlined">
+                Send comment
+            </Button>
         </div>
     );
 };
