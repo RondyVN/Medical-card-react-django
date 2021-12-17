@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LeftPanle = ({children}) => {
+const LeftPanel = ({children}) => {
     return (
         <div className="left-panel">
             {children}
@@ -8,4 +8,4 @@ const LeftPanle = ({children}) => {
     );
 };
 
-export default LeftPanle;
+export default LeftPanel;

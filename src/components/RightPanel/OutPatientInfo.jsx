@@ -1,29 +1,29 @@
 import React from 'react';
 
-const OutPatient = ({info}) => {
+const OutPatientInfo = ({patientInfo}) => {
     return (
         <div className="out-patient">
             <table>
                 <tbody>
                     <tr>
                         <td>First Name:</td>
-                        <td>{info.first_name}</td>
+                        <td>{patientInfo.first_name}</td>
                     </tr>
                     <tr>
                         <td>Last Name:</td>
-                        <td>{info.last_name}</td>
+                        <td>{patientInfo.last_name}</td>
                     </tr>
                     <tr>
                         <td>Country:</td>
-                        <td>{info.country}</td>
+                        <td>{patientInfo.country}</td>
                     </tr>
                     <tr>
                         <td>State:</td>
-                        <td>{info.state}</td>
+                        <td>{patientInfo.state}</td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td>{info.address}</td>
+                        <td>{patientInfo.address}</td>
                     </tr>
             </tbody>
             </table>
@@ -31,4 +31,4 @@ const OutPatient = ({info}) => {
     );
 };
 
-export default OutPatient;
+export default OutPatientInfo;

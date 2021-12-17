@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from "../UI/myinput/Input";
-import {AppBar, Box, Toolbar, Button} from "@mui/material";
+import {AppBar, Box, Toolbar, Button, TextField} from "@mui/material";
 import {useHistory} from "react-router-dom";
 
 const Search = ({filter, setFilter}) => {
@@ -15,7 +15,11 @@ const Search = ({filter, setFilter}) => {
 
             >
                 <Toolbar>
-                    <Input
+                    <TextField
+                        label="Search"
+                        type="search"
+                        variant="standard"
+                        sx={{color: 'white'}}
                         value={filter.query}
                         onChange={e => setFilter({...filter, query: e.target.value})}
                     />

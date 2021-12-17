@@ -43,7 +43,7 @@ body {
     background-color: white;
 }
 
-
+/*
 .patient {
     margin: 20px;
     border-radius: 25px;
@@ -83,9 +83,6 @@ body {
     margin-top: 15px;
 }
 
-::-webkit-scrollbar {
-    width: 0;
-}
 /* -------------------- */
 
 /* styles for right panel */
@@ -98,7 +95,7 @@ body {
     background-color: white;
 }
 
-
+/*
 .placing-btn {
     text-align: right;
     margin-bottom: 15px;
@@ -176,4 +173,4 @@ table {
     height: 100vh;
     max-height: 110px;
     margin-bottom: 20px;
-}
+}*/

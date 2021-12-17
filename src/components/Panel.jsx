@@ -1,42 +1,33 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import Search from "./LeftPanel/Search";
-import MyButton from "./UI/button/MyButton";
 import PatientList from "./LeftPanel/PatientList";
-import LeftPanle from "./LeftPanel/LeftPanle";
-import {useHistory} from "react-router-dom";
+import LeftPanel from "./LeftPanel/LeftPanel";
 import {usePatient} from "../hooks/useSearch";
-import {useFetch} from "../hooks/useFetch";
-import PostService from "../API/PostService";
 import RightPanel from "./RightPanel/RightPanel";
 import {Patients} from "../context";
-import Header from "./RightPanel/Header";
+import PatientGet from "../API/PatientGet";
+import {useHistory} from "react-router-dom";
 
 const Panel = ({children}) => {
-    const route = useHistory()
+    const history = useHistory()
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
-    const [fetchPosts, isPostsLoading, postError] = useFetch(async () => {
-        const response = await PostService.getPatient()
-        //route.push(`/patient/${response.data[0].id}`)
-        //setPatient(response.data[0])
-        setPatients(response.data)
-    })
 
-    useEffect(() => {
-        fetchPosts()
-    }, [])
+    useEffect( () => {
+        async function getPatients(){
+            const patients = await PatientGet.get()
+            setPatients(patients.data)
+        }
+        getPatients()
+    }, [history])
 
     return (
         <div className="panels">
-            {postError}
-            <LeftPanle>
+            <LeftPanel>
                 <Search filter={filter} setFilter={setFilter}/>
-                {isPostsLoading
-                    ? <div>Loading...</div>
-                    : <PatientList patients={getSearch} />
-                }
-            </LeftPanle>
+                <PatientList patients={getSearch}/>
+            </LeftPanel>
             <RightPanel>
                 {children}
             </RightPanel>

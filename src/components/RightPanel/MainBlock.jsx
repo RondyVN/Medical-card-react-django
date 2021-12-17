@@ -1,11 +1,11 @@
 import React from 'react';
-import OutPatient from "./OutPatient";
+import OutPatientInfo from "./OutPatientInfo";
 import CommentsPanel from "./comments/CommentsPanel";
 
-const MainBlock = ({info, comments}) => {
+const MainBlock = ({patientInfo, comments}) => {
     return (
         <div className="main-block">
-            <OutPatient info={info}/>
+            <OutPatientInfo patientInfo={patientInfo}/>
             <CommentsPanel comments={comments}/>
         </div>
     );

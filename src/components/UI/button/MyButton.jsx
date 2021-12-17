@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './MyButton.module.css';
 import {Button} from "@mui/material";
 
 const MyButton = ({children, ...props}) => {

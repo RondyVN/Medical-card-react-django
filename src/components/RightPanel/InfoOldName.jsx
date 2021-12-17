@@ -1,6 +1,6 @@
 import React from 'react';
 import Moment from "react-moment";
-import {Typography, Toolbar} from "@mui/material";
+import {Typography} from "@mui/material";
 
 const InfoOldName = ({someInfo}) => {
 

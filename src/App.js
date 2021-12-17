@@ -2,10 +2,10 @@ import './styles/App.css'
 
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
 import {Patients} from "./context";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Panel from "./components/Panel";
-import CreateForm from "./pages/CreateForm";
-import PatientFormEdit from "./pages/PatientFormEdit";
+import PatientCreateForm from "./pages/PatientCreateForm";
+import PatientEditForm from "./pages/PatientEditForm";
 import PatientInfo from "./pages/PatientInfo";
 import PostService from "./API/PostService";
 
@@ -36,13 +36,13 @@ function App() {
                                     <PatientInfo/>
                                 </Route>
                                 <Route exact path="/patient/create">
-                                    <CreateForm/>
+                                    <PatientCreateForm/>
                                 </Route>
                                 <Route exact path="/patient/:id">
                                     <PatientInfo/>
                                 </Route>
                                 <Route exact path="/patient/:id/edit">
-                                    <PatientFormEdit/>
+                                    <PatientEditForm/>
                                 </Route>
                                 <Route exact path="/">
                                     <Redirect to={id}/>
