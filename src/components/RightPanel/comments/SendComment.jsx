@@ -1,12 +1,13 @@
-
-import {AddComment} from "../../utils/AddComment";
 import {Button, TextField} from "@mui/material";
+import PostService from "../../../API/PostService";
 
 const SendComment = ({create, comment, setComment}) => {
 
     const addComment = async (e) => {
         e.preventDefault()
-        AddComment(comment, setComment, create)
+        const postComment = await PostService.CreateComment(comment)
+        create(postComment.data)
+        setComment({...comment, "comment": ""})
     }
 
 
