@@ -1,17 +1,4 @@
-/* styles for body  */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    background-color: #e0e5da;
-}
-
-#root {
-    display: flex;
-}
 
 .App {
     position: fixed;

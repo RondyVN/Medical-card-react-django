@@ -16,7 +16,7 @@ const PatientList = ({patients}) => {
     return (
         <div>
             {patients.map(e =>
-                <PatientItem key={e.id} patients={e}/>
+                <PatientItem key={e.id} patient={e}/>
             )}
         </div>
     );

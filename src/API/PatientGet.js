@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default class PatientGet {
-    static async get() {
+    static async getAll() {
         return await axios.get('/api-patients/patient-list/')
     }
 

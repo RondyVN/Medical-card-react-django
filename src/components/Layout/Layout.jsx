@@ -16,7 +16,7 @@ const Layout = ({children}) => {
 
     useEffect( () => {
         async function getPatients(){
-            const patients = await PatientGet.get()
+            const patients = await PatientGet.getAll()
             setPatients(patients.data)
         }
         getPatients()

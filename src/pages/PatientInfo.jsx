@@ -19,19 +19,19 @@ const PatientInfo = () => {
 
     useEffect(async () => {
         const patient = await PatientGet.detail(id)
-        const comments = await CommentGet.get(id)
+        const comments = await CommentGet.getAll(id)
         setPatient(patient.data)
         setComments(comments.data)
         setComment({comment: '', comment_id: id})
     }, [id])
 
-    const createComment = async (comment) => {
+    const createComment = (comment) => {
         setComments([comment, ...comments])
     }
 
     const deletePatient = async () => {
         await PatientPost.delete(id)
-        const patients = await PatientGet.get()
+        const patients = await PatientGet.getAll()
         setPatients([...patients.data])
         history.push(`/patient/${patients.data[0].id}`)
     }
@@ -46,8 +46,7 @@ const PatientInfo = () => {
                     Delete
                 </Button>
             </Header>
-            <MainBlock patientInfo={patient} comments={comments} create={createComment} comment={comment}
-                       setComment={setComment}/>
+            <MainBlock patientInfo={patient} comments={comments}/>
             <SendComment create={createComment} comment={comment} setComment={setComment}/>
         </div>
     );

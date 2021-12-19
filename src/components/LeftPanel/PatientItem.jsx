@@ -2,22 +2,18 @@ import React from 'react';
 import {useHistory} from "react-router-dom";
 
 
-const PatientItem = (props) => {
+const PatientItem = ({patient}) => {
 
-    const router = useHistory()
-
-    const pushId = () => {
-        router.push(`/patient/${props.patients.id}`)
-    }
+    const history = useHistory()
 
     return (
-        <div className="patient" onClick={pushId}>
+        <div className="patient" onClick={() => history.push(`/patient/${patient.id}`)}>
             <div className="first-last-name">
-                {props.patients.first_name} {props.patients.last_name}
+                {patient.first_name} {patient.last_name}
             </div>
             <div className="date-patient">
-                <p>{props.patients.sex}</p>
-                {props.patients.date_birth}
+                <p>{patient.sex}</p>
+                {patient.date_birth}
             </div>
         </div>
     );
