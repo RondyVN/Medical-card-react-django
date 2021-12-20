@@ -23,7 +23,7 @@ const PatientCreateForm = () => {
                 <Button
                     onClick={addNewPatient}
                     variant="outlined"
-                    sx={{ml: 3, height: 40}}
+                    sx={{ml: 3}}
                     color="success"
                 >
                     Add patient
@@ -31,7 +31,7 @@ const PatientCreateForm = () => {
                 <Button
                     onClick={() => history.push(`/`)}
                     variant="outlined"
-                    sx={{ml: 3, height: 40}}
+                    sx={{ml: 3}}
                 >
                     Cancel
                 </Button>
