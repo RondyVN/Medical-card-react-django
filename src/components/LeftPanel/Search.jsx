@@ -21,7 +21,7 @@ const Search = ({filter, setFilter}) => {
                 />
                 <Button
                     variant="outlined"
-                    sx={{ml: 3, height: 40}}
+                    sx={{ml: 3}}
                     onClick={() => history.push('/patient/create')}
                     color="success"
                 >

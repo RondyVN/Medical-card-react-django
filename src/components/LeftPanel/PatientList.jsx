@@ -1,9 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {List, ListItemButton, ListItemText} from "@mui/material";
 import WomanIcon from "@mui/icons-material/Woman";
 import ManIcon from "@mui/icons-material/Man";
 import {useHistory} from "react-router-dom";
-import {Patients} from "../../context";
 
 
 const PatientList = ({patients}) => {

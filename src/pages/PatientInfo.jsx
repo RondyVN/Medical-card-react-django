@@ -6,8 +6,9 @@ import {useHistory, useParams} from "react-router-dom";
 import PatientGet from "../API/PatientGet";
 import CommentGet from "../API/CommentGet";
 import PatientPost from "../API/PatientPost";
-import {Button} from "@mui/material";
+import {Button, Popper} from "@mui/material";
 import {Patients} from "../context";
+import ConfirmDeleteModal from "../components/RightPanel/ConfirmDeleteModal";
 
 const PatientInfo = () => {
     const id = useParams().id
@@ -39,12 +40,10 @@ const PatientInfo = () => {
     return (
         <div>
             <Header someInfo={patient}>
-                <Button onClick={() => history.push(`/patient/${patient.id}/edit`)} variant="outlined" sx={{ml: 3, height: 40}}>
+                <Button disabled={!patient.id} onClick={() => history.push(`/patient/${patient.id}/edit`)} variant="outlined">
                     Edit
                 </Button>
-                <Button onClick={deletePatient} variant="outlined" sx={{ml: 3, height: 40}} color="error">
-                    Delete
-                </Button>
+                <ConfirmDeleteModal id={id}/>
             </Header>
             <MainBlock patientInfo={patient} comments={comments}/>
             <SendComment create={createComment} comment={comment} setComment={setComment}/>

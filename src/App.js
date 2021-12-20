@@ -13,7 +13,6 @@ import PostService from "./API/PostService";
 
 function App() {
     const [patients, setPatients] = useState([])
-    const [patient, setPatient] = useState({})
     const [id, setId] = useState('')
     const getId = async () => {
         const response = await PostService.getFirstPatient()
@@ -26,7 +25,6 @@ function App() {
     return (
             <Patients.Provider value={{
                 patients, setPatients,
-                patient, setPatient,
             }}>
                 <BrowserRouter>
                     <div className="App">
