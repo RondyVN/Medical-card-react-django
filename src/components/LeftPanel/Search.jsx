@@ -7,11 +7,9 @@ const Search = ({filter, setFilter}) => {
 
     const history = useHistory()
     return (
-
         <AppBar
             position="sticky"
             sx={{background: 'white'}}
-
         >
             <Toolbar>
                 <TextField

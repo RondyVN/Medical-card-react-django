@@ -20,7 +20,7 @@ const PatientEditForm = () => {
 
     const savePatient = async () => {
         await PatientPost.update(patient)
-        const patients = await PatientGet.get()
+        const patients = await PatientGet.getAll()
         setPatients([...patients.data])
         history.push(`/patient/${patient.id}`)
     }

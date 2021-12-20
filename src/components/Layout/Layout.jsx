@@ -7,18 +7,22 @@ import RightPanel from "../RightPanel/RightPanel";
 import {Patients} from "../../context";
 import PatientGet from "../../API/PatientGet";
 import {useHistory} from "react-router-dom";
+import {useFetch} from "../../hooks/useFetch";
 
 const Layout = ({children}) => {
     const history = useHistory()
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
+    const [firstId, setFirstId] = useState(0)
+
+    const [getPatients, isLoading, error] = useFetch(async () => {
+        const patients = await PatientGet.getAll()
+        setFirstId(patients.data[0].id)
+        setPatients(patients.data)
+    })
 
     useEffect( () => {
-        async function getPatients(){
-            const patients = await PatientGet.getAll()
-            setPatients(patients.data)
-        }
         getPatients()
     }, [history])
 
@@ -26,7 +30,10 @@ const Layout = ({children}) => {
         <div className="panels">
             <LeftPanel>
                 <Search filter={filter} setFilter={setFilter}/>
-                <PatientList patients={getSearch}/>
+                {isLoading
+                    ? <div>Loading...</div>
+                    : <PatientList patients={getSearch} firstId={firstId}/>
+                }
             </LeftPanel>
             <RightPanel>
                 {children}
