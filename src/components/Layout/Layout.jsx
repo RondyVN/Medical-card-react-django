@@ -14,11 +14,11 @@ const Layout = ({children}) => {
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
-    const [firstId, setFirstId] = useState(0)
+    //const [firstId, setFirstId] = useState(0)
 
     const [getPatients, isLoading, error] = useFetch(async () => {
         const patients = await PatientGet.getAll()
-        setFirstId(patients.data[0].id)
+        //setFirstId(patients.data[0].id)
         setPatients(patients.data)
     })
 
@@ -32,7 +32,7 @@ const Layout = ({children}) => {
                 <Search filter={filter} setFilter={setFilter}/>
                 {isLoading
                     ? <div>Loading...</div>
-                    : <PatientList patients={getSearch} firstId={firstId}/>
+                    : <PatientList patients={getSearch} /*firstId={firstId}*//>
                 }
             </LeftPanel>
             <RightPanel>

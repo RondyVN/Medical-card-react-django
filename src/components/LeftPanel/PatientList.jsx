@@ -1,26 +1,19 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import {List, ListItemButton, ListItemText} from "@mui/material";
 import WomanIcon from "@mui/icons-material/Woman";
 import ManIcon from "@mui/icons-material/Man";
 import {useHistory} from "react-router-dom";
+import {Patients} from "../../context";
 
 
-const PatientList = ({patients, firstId}) => {
+const PatientList = ({patients}) => {
     const history = useHistory()
-    const [id, setId] = useState(firstId)
-
-    const pushId = (event, index) => {
-        history.push(`/patient/${index}`)
-        setId(index)
-    }
-
     return (
         <div>
             {patients.map(e =>
-                <List component="nav" aria-label="secondary mailbox folder" key={e.id}>
-                    <ListItemButton
-                        selected={id === e.id}
-                        onClick={(event) => pushId(event, e.id)}
+                <List component="nav" aria-label="secondary mailbox folder" key={e.id} sx={{m: 1}}>
+                    <ListItemButton sx={{borderRadius: 2, boxShadow: 3}}
+                        onClick={() => history.push(`/patient/${e.id}`)}
                     >
                         <ListItemText primary={`${e.first_name} ${e.last_name}`}
                                       secondary={
