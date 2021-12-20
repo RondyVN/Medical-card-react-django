@@ -9,7 +9,7 @@ import {Button} from "@mui/material";
 import ConfirmDeleteModal from "../components/RightPanel/ConfirmDeleteModal";
 
 const PatientEditForm = () => {
-    const {setPatients} = useContext(Patients)
+    const {patients, setPatients} = useContext(Patients)
     const history = useHistory()
     const id = useParams()
     const [patient, setPatient] = useState({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''})
@@ -32,7 +32,7 @@ const PatientEditForm = () => {
                 <Button onClick={savePatient} variant="outlined" sx={{ml: 2}}>
                     Save
                 </Button>
-                <Button onClick={() => history.push(`/patient/${patient.id}`)} variant="outlined" sx={{ml: 2}}>
+                <Button disabled={!patients} onClick={() => history.push(`/patient/${id.id}`)} variant="outlined" sx={{ml: 2}}>
                     Cancel
                 </Button>
                 <ConfirmDeleteModal id={id.id}/>
