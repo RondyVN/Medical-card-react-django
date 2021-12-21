@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Box, Toolbar, Button, TextField} from "@mui/material";
+import {AppBar, Toolbar, Button, TextField} from "@mui/material";
 import {useHistory} from "react-router-dom";
 
 
@@ -20,10 +20,9 @@ const Search = ({filter, setFilter}) => {
                     onChange={e => setFilter({...filter, query: e.target.value})}
                 />
                 <Button
-                    variant="outlined"
+                    variant="contained"
                     sx={{ml: 3}}
                     onClick={() => history.push('/patient/create')}
-                    color="success"
                 >
                     Create
                 </Button>

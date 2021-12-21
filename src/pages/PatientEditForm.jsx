@@ -29,10 +29,10 @@ const PatientEditForm = () => {
     return (
         <div>
             <Header>
-                <Button onClick={savePatient} variant="outlined" sx={{ml: 2}}>
+                <Button onClick={savePatient} variant="contained" sx={{ml: 2}} color="success">
                     Save
                 </Button>
-                <Button disabled={!patients} onClick={() => history.push(`/patient/${id.id}`)} variant="outlined" sx={{ml: 2}}>
+                <Button disabled={!patients} onClick={() => history.push(`/patient/${id.id}`)} variant="contained" sx={{ml: 2}}>
                     Cancel
                 </Button>
                 <ConfirmDeleteModal id={id.id}/>

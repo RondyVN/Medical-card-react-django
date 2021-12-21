@@ -6,11 +6,11 @@ import {usePatient} from "../../hooks/useSearch";
 import RightPanel from "../RightPanel/RightPanel";
 import {Patients} from "../../context";
 import PatientGet from "../../API/PatientGet";
-import {useHistory} from "react-router-dom";
+//import {useHistory} from "react-router-dom";
 import {useFetch} from "../../hooks/useFetch";
 
 const Layout = ({children}) => {
-    const history = useHistory()
+    //const history = useHistory()
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
@@ -24,7 +24,7 @@ const Layout = ({children}) => {
 
     useEffect( () => {
         getPatients()
-    }, [history])
+    }, [])
 
     return (
         <div className="panels">

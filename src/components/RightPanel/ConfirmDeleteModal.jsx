@@ -18,21 +18,21 @@ const ConfirmDeleteModal = ({id}) => {
         setOpen(false);
     }
 
-    const handleClickOpen = () => {
+    const openModal = () => {
         setOpen(true);
     };
 
-    const handleClose = () => {
+    const closeModal = () => {
         setOpen(false);
     };
     return (
         <div>
-            <Button color="error" variant="outlined" onClick={handleClickOpen} sx={{ml: 2}}>
+            <Button color="error" variant="contained" onClick={openModal} sx={{ml: 2}}>
                 Delete
             </Button>
             <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={closeModal}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
@@ -41,11 +41,11 @@ const ConfirmDeleteModal = ({id}) => {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        If you delete a patient, his data will be lost and you will not be able to recover it
+                        If you delete a patient, his data will be lost and you will not be able to recover it.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Disagree</Button>
+                    <Button onClick={closeModal}>Disagree</Button>
                     <Button color="error" onClick={deletePatient} autoFocus>
                         Agree
                     </Button>

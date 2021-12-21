@@ -30,13 +30,15 @@ const PatientInfo = () => {
     return (
         <div>
             <Header someInfo={patient}>
-                <Button disabled={!patient.id} onClick={() => history.push(`/patient/${patient.id}/edit`)} variant="outlined">
+                <Button disabled={!patient.id} onClick={() => history.push(`/patient/${patient.id}/edit`)} variant="contained">
                     Edit
                 </Button>
                 <ConfirmDeleteModal id={id}/>
             </Header>
-            <MainBlock patientInfo={patient} comments={comments}/>
-            <SendComment create={createComment} comment={comment} setComment={setComment}/>
+            <MainBlock create={createComment} patientInfo={patient} comments={comments}>
+                <SendComment comment={comment} create={createComment} setComment={setComment}/>
+            </MainBlock>
+            {/*<SendComment create={createComment} comment={comment} setComment={setComment}/>*/}
         </div>
     );
 };

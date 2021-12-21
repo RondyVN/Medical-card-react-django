@@ -22,7 +22,7 @@ const PatientCreateForm = () => {
             <Header>
                 <Button
                     onClick={addNewPatient}
-                    variant="outlined"
+                    variant="contained"
                     sx={{ml: 3}}
                     color="success"
                 >
@@ -30,7 +30,7 @@ const PatientCreateForm = () => {
                 </Button>
                 <Button
                     onClick={() => history.push(`/`)}
-                    variant="outlined"
+                    variant="contained"
                     sx={{ml: 3}}
                 >
                     Cancel
