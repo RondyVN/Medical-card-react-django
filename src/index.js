@@ -8,7 +8,7 @@ function Main() {
     const [id, setId] = useState('')
     const getId = async () => {
         const response = await PatientGet.getAll()
-        setId(`/patient/${response.data.id}`)
+        setId(`/patient/${response.data[0].id}`)
     }
     if (!id) {
         getId()
