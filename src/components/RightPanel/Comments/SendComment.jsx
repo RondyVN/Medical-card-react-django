@@ -1,18 +1,16 @@
 import {Button, FormLabel, Paper, TextField} from "@mui/material";
-import PostService from "../../../API/PostService";
 import SendIcon from "@mui/icons-material/Send";
-import React from "react";
+import React, {useState} from "react";
+import CommentPost from "../../../API/CommentPost";
 
-const SendComment = ({create, comment, setComment}) => {
-
+const SendComment = ({create, id}) => {
+    const [comment, setComment] = useState({"comment": "", "comment_id": id})
     const addComment = async (e) => {
         e.preventDefault()
-        const postComment = await PostService.CreateComment(comment)
+        const postComment = await CommentPost.create(comment)
         create(postComment.data)
         setComment({...comment, "comment": ""})
     }
-
-    console.log(comment)
 
     return (
         <FormLabel>

@@ -1,9 +1,9 @@
 import React from 'react';
 import {AppBar, Box, Toolbar, Typography, createTheme,} from "@mui/material";
-import InfoOldName from "./InfoOldName";
+import AgeAndName from "./AgeAndName";
 
 
-const Header = ({children, someInfo}) => {
+const RightHeader = ({children, patientInfo}) => {
     const darkTheme = createTheme({
         palette: {
             mode: 'dark',
@@ -16,8 +16,8 @@ const Header = ({children, someInfo}) => {
                     theme={darkTheme}
             >
                 <Toolbar>
-                    {someInfo
-                        ? <InfoOldName someInfo={someInfo}/>
+                    {patientInfo
+                        ? <AgeAndName patientInfo={patientInfo}/>
                         : <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         </Typography>
                     }
@@ -29,4 +29,4 @@ const Header = ({children, someInfo}) => {
     );
 };
 
-export default Header;
+export default RightHeader;

@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState} from 'react';
-import Search from "../LeftPanel/Search";
-import PatientList from "../LeftPanel/PatientList";
+import Search from "../Headers/LeftHeader";
+import PatientList from "./PatientList";
 import LeftPanel from "../LeftPanel/LeftPanel";
 import {usePatient} from "../../hooks/useSearch";
 import RightPanel from "../RightPanel/RightPanel";
 import {Patients} from "../../context";
 import PatientGet from "../../API/PatientGet";
-//import {useHistory} from "react-router-dom";
 import {useFetch} from "../../hooks/useFetch";
 
 const Layout = ({children}) => {

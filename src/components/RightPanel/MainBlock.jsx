@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentsPanel from "./comments/CommentsPanel";
+import CommentsPanel from "./Comments/CommentsPanel";
 import {
     Box,
     Grid,
@@ -19,7 +19,14 @@ const MainBlock = ({patientInfo, comments, children}) => {
                 </Grid>
                 <Grid item xs={6} md={8}/*md={4}*/>
                     <Paper elevation={10} style={paperStyle}
-                           sx={{height: 450, overflowY: "scroll", wordWrap: "break-word", maxWidth: 1000, position: "relative", bottom: 0}}>
+                           sx={{
+                               height: 450,
+                               overflowY: "scroll",
+                               wordWrap: "break-word",
+                               maxWidth: 1000,
+                               position: "relative",
+                               bottom: 0
+                           }}>
                         <Typography component="div">
                             <CommentsPanel comments={comments}/>
                         </Typography>

@@ -3,7 +3,7 @@ import {AppBar, Toolbar, Button, TextField} from "@mui/material";
 import {useHistory} from "react-router-dom";
 
 
-const Search = ({filter, setFilter}) => {
+const LeftHeader = ({filter, setFilter}) => {
 
     const history = useHistory()
     return (
@@ -31,4 +31,4 @@ const Search = ({filter, setFilter}) => {
     );
 };
 
-export default Search;
+export default LeftHeader;

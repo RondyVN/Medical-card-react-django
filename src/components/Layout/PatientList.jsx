@@ -8,27 +8,27 @@ import {useHistory} from "react-router-dom";
 const PatientList = ({patients}) => {
     const history = useHistory()
     return (
-        <div>
-            {patients.map(e =>
-                <List component="nav" aria-label="secondary mailbox folder" key={e.id} sx={{m: 1}}>
+        <nav>
+            {patients.map(patient =>
+                <List component="div" aria-label="secondary mailbox folder" key={patient.id} sx={{m: "0 5px 0 5px"}}>
                     <ListItemButton sx={{borderRadius: 2, boxShadow: 3}}
-                        onClick={() => history.push(`/patient/${e.id}`)}
+                        onClick={() => history.push(`/patient/${patient.id}`)}
                     >
-                        <ListItemText primary={`${e.first_name} ${e.last_name}`}
+                        <ListItemText primary={`${patient.first_name} ${patient.last_name}`}
                                       secondary={
                                           <React.Fragment>
-                                              {e.date_birth}
+                                              {patient.date_birth}
                                           </React.Fragment>
                                       }
                         />
-                        {e.sex === 'Female'
+                        {patient.sex === 'Female'
                             ? <WomanIcon sx={{ fontSize: 30 }}/>
                             : <ManIcon sx={{ fontSize: 30 }}/>
                         }
                     </ListItemButton>
                 </List>
             )}
-        </div>
+        </nav>
     );
 };
 

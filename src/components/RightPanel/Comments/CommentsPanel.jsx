@@ -13,16 +13,16 @@ const CommentsPanel = ({comments}) => {
     }
     return (
         <Paper style={{padding: "20px 20px"}}>
-            {comments.map(e =>
-                <div className="comment" key={e.id}>
+            {comments.map(comment =>
+                <div className="comment" key={comment.id}>
                     <Grid container wrap="nowrap" spacing={2}>
                         <Grid justifyContent="left" item xs zeroMinWidth>
                             <h4 style={{margin: 0, textAlign: "left"}}>Doctor</h4>
                             <p>
-                                {e.comment}
+                                {comment.comment}
                             </p>
                             <p style={{textAlign: "left", color: "gray"}}>
-                                {e.date_create}
+                                {comment.date_create}
                             </p>
                         </Grid>
                     </Grid>

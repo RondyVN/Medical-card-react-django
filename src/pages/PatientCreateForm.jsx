@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {useState} from "react";
-import FormPatientInfo from "../components/RightPanel/FormPatientInfo";
-import Header from "../components/RightPanel/Header";
+import PatientForm from "../components/Form/PatientForm";
+import Header from "../components/Headers/RightHeader";
 import {Patients} from "../context";
 import {useHistory} from "react-router-dom";
 import {Button} from "@mui/material";
@@ -21,6 +21,7 @@ const PatientCreateForm = () => {
         <div>
             <Header>
                 <Button
+                    disabled={!patient.first_name || !patient.last_name || !patient.date_birth || !patient.sex || !patient.state || !patient.country || !patient.address }
                     onClick={addNewPatient}
                     variant="contained"
                     sx={{ml: 3}}
@@ -36,7 +37,7 @@ const PatientCreateForm = () => {
                     Cancel
                 </Button>
             </Header>
-            <FormPatientInfo patient={patient} setPatient={setPatient} />
+            <PatientForm patient={patient} setPatient={setPatient} />
         </div>
     );
 };

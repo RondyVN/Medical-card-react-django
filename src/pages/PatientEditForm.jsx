@@ -1,5 +1,5 @@
-import Header from "../components/RightPanel/Header";
-import FormPatientInfo from "../components/RightPanel/FormPatientInfo";
+import Header from "../components/Headers/RightHeader";
+import PatientForm from "../components/Form/PatientForm";
 import React, {useContext, useEffect, useState} from "react";
 import {Patients} from "../context";
 import {useHistory, useParams} from "react-router-dom";
@@ -37,7 +37,7 @@ const PatientEditForm = () => {
                 </Button>
                 <ConfirmDeleteModal id={id.id}/>
             </Header>
-            <FormPatientInfo patient={patient} setPatient={setPatient}/>
+            <PatientForm patient={patient} setPatient={setPatient}/>
         </div>
     );
 };

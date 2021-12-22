@@ -2,22 +2,22 @@ import React from 'react';
 import Moment from "react-moment";
 import {Typography} from "@mui/material";
 
-const InfoOldName = ({someInfo}) => {
+const AgeAndName = ({patientInfo}) => {
 
 
     return (
         <>
             <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                {someInfo.first_name} {someInfo.last_name}
+                {patientInfo.first_name} {patientInfo.last_name}
             </Typography>
             <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                {someInfo.date_birth
-                    ?<Moment fromNow ago>{someInfo.date_birth}</Moment>
-                    :<div>{someInfo.date_birth}</div>
+                {patientInfo.date_birth
+                    ?<Moment fromNow ago>{patientInfo.date_birth}</Moment>
+                    :<div>{patientInfo.date_birth}</div>
                 }
             </Typography>
         </>
     );
 };
 
-export default InfoOldName;
+export default AgeAndName;
