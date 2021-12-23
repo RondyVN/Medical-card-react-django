@@ -9,7 +9,6 @@
     "@mui/icons-material": "^5.2.4",
     "@mui/material": "^5.2.3",
     "@testing-library/jest-dom": "^5.15.1",
-    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.24.0",
     "react": "^17.0.2",
@@ -48,6 +47,7 @@
     "npm": "8.1.4"
   },
   "devDependencies": {
-    "@mui/lab": "^5.0.0-alpha.60"
+    "@mui/lab": "^5.0.0-alpha.60",
+    "@testing-library/react": "^12.1.2"
   }
 }

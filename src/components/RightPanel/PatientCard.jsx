@@ -2,6 +2,15 @@ import React from 'react';
 import {Paper, Typography} from "@mui/material";
 
 const PatientCard = ({patientInfo, paperStyle}) => {
+    console.log(patientInfo)
+    if (!patientInfo) {
+        return (
+            <Paper elevation={20} style={paperStyle}>
+                <div>Error</div>
+            </Paper>
+        )
+    }
+
     return (
         <Paper elevation={20} style={paperStyle}>
             <Typography component="div" variant="h5">

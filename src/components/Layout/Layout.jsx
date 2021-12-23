@@ -13,7 +13,6 @@ const Layout = ({children}) => {
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
-    //const [firstId, setFirstId] = useState(0)
 
     const [getPatients, isLoading, error] = useFetch(async () => {
         const patients = await PatientGet.getAll()

@@ -1,13 +1,14 @@
 import './styles/App.css'
 import {BrowserRouter, Redirect, Route, Switch} from "react-router-dom";
-import React from "react";
+import React, {useState} from "react";
 import Layout from "./components/Layout/Layout";
 import PatientCreateForm from "./pages/PatientCreateForm";
 import PatientEditForm from "./pages/PatientEditForm";
 import PatientInfo from "./pages/PatientInfo";
-
+import PatientGet from "./API/PatientGet";
 
 function App({id}) {
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -26,7 +27,7 @@ function App({id}) {
                             <PatientEditForm/>
                         </Route>
                         <Route exact path="/">
-                            <Redirect to={id}/>
+                            <Redirect to={id || '/'}/>
                         </Route>
                     </Switch>
                 </Layout>

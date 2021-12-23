@@ -2,7 +2,7 @@ import React from 'react';
 import {Grid, Paper, Divider} from "@mui/material";
 
 const CommentsPanel = ({comments}) => {
-    if (!comments.length) {
+    if (!comments?.length) {
         return (
             <div className="comment-panel">
                 <h1 style={{textAlign: 'center'}}>
