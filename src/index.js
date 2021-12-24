@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {Patients} from "./context";
 import PatientGet from "./API/PatientGet";
+import PatientsContext from "./context/PatientsContext";
 
 function Main() {
     const [id, setId] = useState('')
@@ -13,13 +13,10 @@ function Main() {
     if (!id) {
         getId()
     }
-    const [patients, setPatients] = useState([])
     return (
-        <Patients.Provider value={{
-            patients, setPatients,
-        }}>
+        <PatientsContext>
             <App id={id}/>
-        </Patients.Provider>
+        </PatientsContext>
     )
 }
 

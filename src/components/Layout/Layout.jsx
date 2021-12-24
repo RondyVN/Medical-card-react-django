@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Search from "../Headers/LeftHeader";
 import PatientList from "./PatientList";
 import LeftPanel from "../LeftPanel/LeftPanel";
@@ -13,14 +13,14 @@ const Layout = ({children}) => {
     const {patients, setPatients} = useContext(Patients)
     const [filter, setFilter] = useState({query: ''})
     const getSearch = usePatient(patients, filter.query)
-
-    const [getPatients, isLoading, error] = useFetch(async () => {
+    //console.log(patients)
+    const [getPatients, error] = useFetch(async () => {
         const patients = await PatientGet.getAll()
         //setFirstId(patients.data[0].id)
         setPatients(patients.data)
     })
 
-    useEffect( () => {
+    useEffect(() => {
         getPatients()
     }, [])
 
@@ -28,10 +28,7 @@ const Layout = ({children}) => {
         <div className="panels">
             <LeftPanel>
                 <Search filter={filter} setFilter={setFilter}/>
-                {isLoading
-                    ? <div>Loading...</div>
-                    : <PatientList patients={getSearch} /*firstId={firstId}*//>
-                }
+                <PatientList patients={getSearch} /*firstId={firstId}*//>
             </LeftPanel>
             <RightPanel>
                 {children}

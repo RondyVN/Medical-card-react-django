@@ -1,5 +1,6 @@
 import {render, screen} from "@testing-library/react";
 import CommentsPanel from "../components/RightPanel/Comments/CommentsPanel";
+import {Patients} from "../context";
 
 const comments = [
     {
@@ -31,7 +32,6 @@ describe('Comment', () => {
 
     test('List comments empty', () => {
         render(<CommentsPanel/>)
-
         expect(screen.getByText(/There are no comments yet/i))
         expect(screen.queryByRole('list')).toBeNull()
     })

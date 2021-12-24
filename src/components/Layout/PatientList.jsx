@@ -8,9 +8,9 @@ import {useHistory} from "react-router-dom";
 const PatientList = ({patients}) => {
     const history = useHistory()
     return (
-        <nav>
+        <nav data-testid="navbar">
             {patients?.map((patient) =>
-                <List component="div" aria-label="secondary mailbox folder" key={patient.id} sx={{m: "0 5px 0 5px"}}>
+                <List data-testid="link-patient" component="div" aria-label="secondary mailbox folder" key={patient.id} sx={{m: "0 5px 0 5px"}}>
                     <ListItemButton sx={{borderRadius: 2, boxShadow: 3}}
                         onClick={() => history.push(`/patient/${patient.id}`)}
                     >

@@ -46,7 +46,7 @@ const ConfirmDeleteModal = ({id}) => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={closeModal}>Disagree</Button>
-                    <Button color="error" onClick={deletePatient} autoFocus>
+                    <Button data-testid="Agree" color="error" onClick={deletePatient} autoFocus>
                         Agree
                     </Button>
                 </DialogActions>

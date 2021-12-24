@@ -5,7 +5,6 @@ import Layout from "./components/Layout/Layout";
 import PatientCreateForm from "./pages/PatientCreateForm";
 import PatientEditForm from "./pages/PatientEditForm";
 import PatientInfo from "./pages/PatientInfo";
-import PatientGet from "./API/PatientGet";
 
 function App({id}) {
 

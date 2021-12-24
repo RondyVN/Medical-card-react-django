@@ -1,4 +1,4 @@
 import {createContext} from "react";
 
 
-export const Patients = createContext('')
+export const Patients = createContext([])

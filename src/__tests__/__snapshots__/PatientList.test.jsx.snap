@@ -5,11 +5,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <nav />
+      <nav
+        data-testid="navbar"
+      />
     </div>
   </body>,
   "container": <div>
-    <nav />
+    <nav
+      data-testid="navbar"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -70,10 +74,13 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <nav>
+      <nav
+        data-testid="navbar"
+      >
         <div
           aria-label="secondary mailbox folder"
           class="MuiList-root MuiList-padding css-11ub8u3-MuiList-root"
+          data-testid="link-patient"
         >
           <div
             class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1ap3x8l-MuiButtonBase-root-MuiListItemButton-root"
@@ -120,6 +127,7 @@ Object {
         <div
           aria-label="secondary mailbox folder"
           class="MuiList-root MuiList-padding css-11ub8u3-MuiList-root"
+          data-testid="link-patient"
         >
           <div
             class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1ap3x8l-MuiButtonBase-root-MuiListItemButton-root"
@@ -166,6 +174,7 @@ Object {
         <div
           aria-label="secondary mailbox folder"
           class="MuiList-root MuiList-padding css-11ub8u3-MuiList-root"
+          data-testid="link-patient"
         >
           <div
             class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1ap3x8l-MuiButtonBase-root-MuiListItemButton-root"
@@ -213,10 +222,13 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <nav>
+    <nav
+      data-testid="navbar"
+    >
       <div
         aria-label="secondary mailbox folder"
         class="MuiList-root MuiList-padding css-11ub8u3-MuiList-root"
+        data-testid="link-patient"
       >
         <div
           class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1ap3x8l-MuiButtonBase-root-MuiListItemButton-root"
@@ -263,6 +275,7 @@ Object {
       <div
         aria-label="secondary mailbox folder"
         class="MuiList-root MuiList-padding css-11ub8u3-MuiList-root"
+        data-testid="link-patient"
       >
         <div
           class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1ap3x8l-MuiButtonBase-root-MuiListItemButton-root"
@@ -309,6 +322,7 @@ Object {
       <div
         aria-label="secondary mailbox folder"
         class="MuiList-root MuiList-padding css-11ub8u3-MuiList-root"
+        data-testid="link-patient"
       >
         <div
           class="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-1ap3x8l-MuiButtonBase-root-MuiListItemButton-root"
