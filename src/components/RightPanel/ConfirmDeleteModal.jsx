@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle, DialogContentText} from "@mui/material";
 import PatientPost from "../../API/PatientPost";
 import PatientGet from "../../API/PatientGet";
@@ -6,7 +6,7 @@ import {Patients} from "../../context";
 import {useHistory} from "react-router-dom";
 
 const ConfirmDeleteModal = ({id}) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const {setPatients} = useContext(Patients)
     const history = useHistory()
 

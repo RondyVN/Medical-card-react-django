@@ -1,5 +1,6 @@
 import React from 'react';
 import {Grid, Paper, Divider} from "@mui/material";
+import {List} from "@mui/icons-material";
 
 const CommentsPanel = ({comments}) => {
     if (!comments?.length) {
@@ -13,8 +14,8 @@ const CommentsPanel = ({comments}) => {
     }
     return (
         <Paper style={{padding: "20px 20px"}}>
-            {comments.map(comment =>
-                <div className="comment" key={comment.id}>
+            {comments.map((comment) =>
+                <div key={comment.id}>
                     <Grid container wrap="nowrap" spacing={2}>
                         <Grid justifyContent="left" item xs zeroMinWidth>
                             <h4 style={{margin: 0, textAlign: "left"}}>Doctor</h4>

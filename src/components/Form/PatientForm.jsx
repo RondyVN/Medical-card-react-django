@@ -10,6 +10,7 @@ const PatientForm = ({patient, setPatient}) => {
             <Paper elevation={20} style={paperStyle}>
                 <form>
                     <TextField fullWidth label='First name' placeholder="Enter your first name" variant="standard"
+                               data-testid="first_name"
                                style={marginInput}
                                value={patient.first_name}
                                onChange={e => setPatient({...patient, first_name: e.target.value})}
@@ -25,8 +26,8 @@ const PatientForm = ({patient, setPatient}) => {
                                     value={patient.sex}
                                     onChange={e => setPatient({...patient, sex: e.target.value})}
                         >
-                            <FormControlLabel value="Female" control={<Radio/>} label="Female"/>
-                            <FormControlLabel value="Male" control={<Radio/>} label="Male"/>
+                            <FormControlLabel data-testid="Female-id" value="Female" control={<Radio/>} label="Female"/>
+                            <FormControlLabel data-testid="Male-id" value="Male" control={<Radio/>} label="Male"/>
                         </RadioGroup>
                     </FormControl>
                     <TextField fullWidth id="date" label="Birthday" type="date" variant="standard" style={marginInput}

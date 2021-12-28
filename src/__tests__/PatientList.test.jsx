@@ -39,7 +39,6 @@ describe('List patient', () => {
         render(<PatientList patients={data}/>)
         const linkElement = screen.getAllByText(/Chuiko/);
 
-        expect(screen.getAllByRole('button', { suggest: true }))
         expect(linkElement);
     })
 

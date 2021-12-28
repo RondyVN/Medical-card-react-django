@@ -13,10 +13,11 @@ const PatientCreateForm = () => {
     const [patient, setPatient] = useState({first_name: '', last_name: '', date_birth: '', sex: '', state: '', country: '', address: ''});
     const addNewPatient = async () => {
         const patientCreated = await PatientPost.create(patient)
-        setPatients([patientCreated.data, ...patients])
+        setPatients([patient, ...patients])
         history.push(`/patient/${patientCreated.data.id}`)
     }
 
+    //console.log(patient)
     return (
         <div>
             <Header>

@@ -13,19 +13,19 @@ const PatientInfo = () => {
     const history = useHistory()
     const [patient, setPatient] = useState('')
     const [comments, setComments] = useState([])
-    console.log(id)
-    console.log(patient)
+    //console.log(id, 'ID')
+    //console.log(comments, 'COMMENTS')
     useEffect(async () => {
         const patient = await PatientGet.detail(id)
         const comments = await CommentGet.getAll(id)
         setPatient(patient.data)
-        //setComments(comments.data)
+        setComments(comments.data)
     }, [id])
+    //console.log(patient, 'PATIENT')
 
     const createComment = (comment) => {
         setComments([comment, ...comments])
     }
-
     return (
         <div>
             <Header patientInfo={patient}>

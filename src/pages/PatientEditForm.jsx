@@ -18,7 +18,6 @@ const PatientEditForm = () => {
         const patient = await PatientGet.detail(id.id)
         setPatient(patient.data)
     }, [id.id])
-
     const savePatient = async () => {
         await PatientPost.update(patient)
         const patients = await PatientGet.getAll()

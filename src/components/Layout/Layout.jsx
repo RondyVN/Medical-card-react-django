@@ -19,7 +19,7 @@ const Layout = ({children}) => {
         //setFirstId(patients.data[0].id)
         setPatients(patients.data)
     })
-
+    //console.log(patients)
     useEffect(() => {
         getPatients()
     }, [])

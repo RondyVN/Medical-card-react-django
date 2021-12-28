@@ -2,7 +2,6 @@ import React from 'react';
 import {Paper, Typography} from "@mui/material";
 
 const PatientCard = ({patientInfo, paperStyle}) => {
-    console.log(patientInfo)
     if (!patientInfo) {
         return (
             <Paper elevation={20} style={paperStyle}>
@@ -12,7 +11,7 @@ const PatientCard = ({patientInfo, paperStyle}) => {
     }
 
     return (
-        <Paper elevation={20} style={paperStyle}>
+        <Paper elevation={20} style={paperStyle} data-testid="patientcard">
             <Typography component="div" variant="h5">
                 First Name: {patientInfo.first_name}
             </Typography>

@@ -11,7 +11,7 @@ const RightHeader = ({children, patientInfo}) => {
         },
     });
     return (
-        <Box sx={{flexGrow: 1}}>
+        <Box sx={{flexGrow: 1}} data-testid="patient-header">
             <AppBar position="static"
                     theme={darkTheme}
             >
