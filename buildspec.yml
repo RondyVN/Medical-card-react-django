@@ -9,13 +9,15 @@ phases:
       - apt install -y nodejs
   pre_build:
     commands:
-      - yarn install
+      - echo Installing dependencing...
+      - npm install
+      - npm i --save moment
   build:
     commands:
       - echo Testing...
-      - yarn test
+      - npm test
       - echo Building...
-      - yarn build
+      - npm run build
 artifacts:
   files:
     - "**/*"
