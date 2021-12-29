@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       # install node 16
-      - ehco Installing Node 16...
+      - echo Installing Node 16...
       - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
       - apt install -y nodejs
   pre_build:
