@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # install node 16
+      - ehco Installing Node 16...
+      - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+      - apt install -y nodejs
+  pre_build:
+    commands:
+      - echo Installing dependencing...
+      - npm
+  build:
+    commands:
+      - echo Testing...
+      - npm test
+      - echo Building...
+      - npm run buil
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist
