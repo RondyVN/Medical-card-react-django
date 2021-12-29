@@ -21,6 +21,8 @@ phases:
     commands:
       - echo Testing...
       - npm test
+      - w
+      - q
       - echo Building...
       - npm run build
 artifacts:
