@@ -11,6 +11,11 @@ phases:
     commands:
       - echo Installing dependencing...
       - npm install
+      - npm install react-router-dom@5.2.0
+      - npm install axios
+      - npm install react-moment
+      - npm install @mui/material
+      - npm install @mui/icons-material
   build:
     commands:
       - echo Testing...
