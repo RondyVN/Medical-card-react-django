@@ -235,7 +235,7 @@ describe("removal, creation and modification of the patient", () => {
 
         expect(screen.queryByText('Ivan Ivanon')).toBeNull()
         expect(screen.getByTestId("navbar")).toContainElement(await screen.findByText('Ivan Ivanon'))
-        expect(screen.getByText(/First name: Ivanфів/i))
+        expect(screen.getByText(/First name: Ivan/i))
         expect(screen.getByText(/Last name: Ivanon/i))
         expect(screen.getByText(/Country: USA/i))
     })
