@@ -5,7 +5,7 @@ const PatientCard = ({patientInfo, paperStyle}) => {
     if (!patientInfo) {
         return (
             <Paper elevation={20} style={paperStyle}>
-                <div>Error</div>
+                <div>Waiting...</div>
             </Paper>
         )
     }
