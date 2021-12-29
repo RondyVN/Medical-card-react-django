@@ -2,17 +2,20 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      nodejs: 14
     commands:
-      - echo Installing app dependencies...
+      # install node 16
+      - echo Installing Node 16...
+      - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+      - apt install -y nodejs
+  pre_build:
+    commands:
       - yarn install
   build:
     commands:
-      - echo Building static site...
+      - echo Testing...
+      - yarn test
+      - echo Building...
       - yarn build
-      - echo Run tests...
-      - CI=true yarn test
 artifacts:
   files:
     - "**/*"
