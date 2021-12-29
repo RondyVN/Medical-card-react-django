@@ -5,6 +5,8 @@
 #   SAUCE_USERNAME: ${{ secrets.SAUCE_USERNAME }}
 #   SAUCE_ACCESS_KEY: ${{ secrets.SAUCE_ACCESS_KEY }}
 
+name: Node.js CI
+
 on:
    push:
      branches: [ main ]
