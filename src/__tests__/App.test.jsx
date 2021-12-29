@@ -81,9 +81,6 @@ const patients_edit = [
     }
 ]
 
-
-
-
 const comments = [
     {
         "id": 45,
