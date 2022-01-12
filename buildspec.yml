@@ -19,7 +19,9 @@ phases:
       - echo Testing...
       - CI=true npm test
 artifacts:
+  baseDirectory: build
   files:
-    - "**/*"
-  discard-paths: no
-  base-directory: dist
+    - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
