@@ -1,0 +1,25 @@
+version: 0.2
+
+phase:
+  install:
+    runtime-versions:
+      nodejs: 16
+    commands:
+      - echo Installing app dependecies
+      - npm ci
+      - npm install moment
+  build:
+    commands:
+      - echo Building static site...
+      - npm build
+      - echo Run tests...
+      - CI=true npm test
+artifacts:
+  type: zip
+  paths:
+    - './build/**/*'
+    - './cicd/**/*'
+
+cache:
+  paths:
+    - './node_modules/**/*'
