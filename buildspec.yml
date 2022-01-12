@@ -18,6 +18,7 @@ phases:
       - npm run build
       - echo Testing...
       - CI=true npm test
+      - pip install -r requirements.txt
 artifacts:
   baseDirectory: build
   files:
