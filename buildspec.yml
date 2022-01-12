@@ -15,11 +15,8 @@ phase:
       - echo Run tests...
       - CI=true npm test
 artifacts:
-  type: zip
-  paths:
-    - './build/**/*'
-    - './cicd/**/*'
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: dist
 
-cache:
-  paths:
-    - './node_modules/**/*'
