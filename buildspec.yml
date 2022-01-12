@@ -1,22 +1,25 @@
 version: 0.2
 
-phase:
+phases:
   install:
     commands:
-      - curl -fsSL https://deb.nodesource.com/setup_17.x | bash -
+      # install node 16
+      - echo Installing Node 16...
+      - curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
       - apt install -y nodejs
-      - echo Installing app dependecies
-      - npm ci
-      - npm install moment
+  pre_build:
+    commands:
+      - echo Installing dependencing...
+      - npm install
+      - npm i --save moment
   build:
     commands:
-      - echo Building static site...
-      - npm build
-      - echo Run tests...
-      - CI=true npm test
+      - echo Testing...
+      - npm test
+      - echo Building...
+      - npm run build
 artifacts:
   files:
     - "**/*"
   discard-paths: no
   base-directory: dist
-
