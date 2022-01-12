@@ -7,6 +7,7 @@ import {useHistory} from "react-router-dom";
 
 const PatientList = ({patients}) => {
     const history = useHistory()
+    console.log(patients)
     return (
         <nav data-testid="navbar">
             {patients?.map((patient) =>
