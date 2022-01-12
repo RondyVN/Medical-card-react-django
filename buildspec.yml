@@ -14,11 +14,13 @@ phases:
       - npm i --save moment
   build:
     commands:
+      - echo installing python requirements
+      - pip install -r requirements.txt
       - echo Building...
       - npm run build
       - echo Testing...
       - CI=true npm test
-      - pip install -r requirements.txt
+      - python3 manage.py collectstatic
 artifacts:
   baseDirectory: build
   files:
