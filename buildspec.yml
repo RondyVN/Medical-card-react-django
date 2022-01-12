@@ -10,14 +10,14 @@ phases:
   pre_build:
     commands:
       - echo Installing dependencing...
-      - npm install
+      - npm ci
       - npm i --save moment
   build:
     commands:
-      - echo Testing...
-      - npm test
       - echo Building...
       - npm run build
+      - echo Testing...
+      - npm test
 artifacts:
   files:
     - "**/*"
