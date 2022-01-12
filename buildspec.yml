@@ -20,7 +20,6 @@ phases:
       - npm run build
       - echo Testing...
       - CI=true npm test
-      - python manage.py collectstatic
 artifacts:
   baseDirectory: build
   files:
