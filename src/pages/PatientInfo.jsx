@@ -35,7 +35,7 @@ const PatientInfo = () => {
                 <ConfirmDeleteModal id={id}/>
             </Header>
             <MainBlock create={createComment} patientInfo={patient} comments={comments}>
-                <SendComment create={createComment}/>
+                <SendComment create={createComment} id={id}/>
             </MainBlock>
         </div>
     );
