@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/RightPanel/Comments/SendComment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RightPanel/Comments/SendComment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/PatientInfo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/PatientInfo.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/staticfiles/staticfiles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +56,8 @@
       <option name="presentableId" value="Default" />
       <updated>1641983461987</updated>
       <workItem from="1641983467294" duration="741000" />
-      <workItem from="1642189877107" duration="317000" />
+      <workItem from="1642189877107" duration="650000" />
+      <workItem from="1642504724494" duration="657000" />
     </task>
     <servers />
   </component>

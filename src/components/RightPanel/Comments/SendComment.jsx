@@ -3,9 +3,7 @@ import SendIcon from "@mui/icons-material/Send";
 import React, {useState} from "react";
 import CommentPost from "../../../API/CommentPost";
 
-const SendComment = ({create, id}) => {
-    const [comment, setComment] = useState({"comment": "", "comment_id": id})
-    console.log(comment)
+const SendComment = ({create, id, comment, setComment}) => {
     const addComment = async (e) => {
         e.preventDefault()
         const postComment = await CommentPost.create(comment)

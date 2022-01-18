@@ -13,19 +13,20 @@ const PatientInfo = () => {
     const history = useHistory()
     const [patient, setPatient] = useState('')
     const [comments, setComments] = useState([])
-    //console.log(id, 'ID')
-    //console.log(comments, 'COMMENTS')
+    const [comment, setComment] = useState({"comment": "", "comment_id": ""})
     useEffect(async () => {
         const patient = await PatientGet.detail(id)
         const comments = await CommentGet.getAll(id)
         setPatient(patient.data)
         setComments(comments.data)
+        setComment({comment: '', comment_id: id})
+
     }, [id])
-    //console.log(patient, 'PATIENT')
 
     const createComment = (comment) => {
         setComments([comment, ...comments])
     }
+
     return (
         <div>
             <Header patientInfo={patient}>
@@ -35,7 +36,7 @@ const PatientInfo = () => {
                 <ConfirmDeleteModal id={id}/>
             </Header>
             <MainBlock create={createComment} patientInfo={patient} comments={comments}>
-                <SendComment create={createComment} id={id}/>
+                <SendComment create={createComment} id={id} comment={comment} setComment={setComment}/>
             </MainBlock>
         </div>
     );
